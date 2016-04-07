@@ -1,0 +1,10 @@
+13:20:44 **** Clean-only build of configuration Visual_parallel for project BilatTools_OMP ****
+Info: Configuration "Visual_parallel" uses tool-chain "cdt.managedbuild.toolchain.gnu.mingw.base" that is unsupported on this system, attempting to build anyway.
+makeVisual.bat clean 
+Cannot run program "makeVisual.bat": Unknown reason
+
+Error: Program "makeVisual.bat" not found in PATH
+PATH=[/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/etc/cbi/dev/make]
+
+13:20:44 Build Finished (took 2ms)
+
