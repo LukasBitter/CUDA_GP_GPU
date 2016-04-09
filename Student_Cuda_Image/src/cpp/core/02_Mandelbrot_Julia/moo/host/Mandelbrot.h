@@ -1,11 +1,9 @@
 #pragma once
 
-#include "MandelbrotMath.h"
-
-#include "cudaType_CPU.h"
-#include "Variateur_CPU.h"
-#include "Animable_I_CPU.h"
-using namespace cpu;
+#include "cudaTools.h"
+#include "Variateur_GPU.h"
+#include "Animable_I_GPU.h"
+using namespace gpu;
 
 /*----------------------------------------------------------------------*\
  |*			Declaration 					*|
@@ -24,7 +22,7 @@ class Mandelbrot: public Animable_I<uchar4>
 
     public:
 
-	Mandelbrot(uint w, uint h, uint nMin, uint nMax, const DomaineMath& domaineMath);
+	Mandelbrot(const Grid& grid, uint w, uint h, uint nMin, uint nMax, const DomaineMath& domaineMath);
 
 	virtual ~Mandelbrot(void);
 
@@ -38,15 +36,11 @@ class Mandelbrot: public Animable_I<uchar4>
 	|*   Override Animable_I   *|
 	 \*------------------------*/
 
-	/**
-	 * Call periodicly by the api
-	 */
-	virtual void processEntrelacementOMP(uchar4* ptrTabPixels, uint w, uint h, const DomaineMath& domaineMath);
 
 	/**
 	 * Call periodicly by the api
 	 */
-	virtual void processForAutoOMP(uchar4* ptrTabPixels, uint w, uint h, const DomaineMath& domaineMath);
+	virtual void process(uchar4* ptrTabPixels, uint w, uint h, const DomaineMath& domaineMath);
 
 	/**
 	 * Call periodicly by the api
@@ -55,15 +49,6 @@ class Mandelbrot: public Animable_I<uchar4>
 
     private:
 
-	/**
-	 * i in [0,h[
-	 * j in [0,w[
-	 *
-	 * code commun a:
-	 * 	- entrelacementOMP
-	 * 	- forAutoOMP
-	 */
-	void workPixel(uchar4* ptrColorIJ, int i, int j, const DomaineMath& domaineMath, MandelbrotMath* ptrMandelbrotMath);
 
 	/*--------------------------------------*\
 	|*		Attribut		*|

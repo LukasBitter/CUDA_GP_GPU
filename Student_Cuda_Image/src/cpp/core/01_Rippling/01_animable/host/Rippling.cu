@@ -3,7 +3,6 @@
 
 #include "Device.h"
 #include "Rippling.h"
-#include <assert.h>
 
 using std::cout;
 using std::endl;

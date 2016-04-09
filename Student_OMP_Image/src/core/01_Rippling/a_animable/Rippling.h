@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cudaType_CPU.h"
+
 #include "Animable_I_CPU.h"
 using namespace cpu;
 

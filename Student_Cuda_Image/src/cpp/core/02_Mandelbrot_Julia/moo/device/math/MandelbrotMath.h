@@ -4,12 +4,10 @@
 #include "MathTools.h"
 #include <iostream>
 
-#include "../../../../../../BilatTools_CPP/src/core/tools/header/namespace_cpu/cudaType_CPU.h"
-#include "../../../../../../BilatTools_CPP/src/core/tools/header/namespace_cpu/Calibreur_CPU.h"
-#include "../../../../../../BilatTools_CPP/src/core/tools/header/namespace_cpu/ColorTools_CPU.h"
-#include "../../../../../../BilatTools_CPP/src/core/tools/header/namespace_cpu/Interval_CPU.h"
+#include "Calibreur_GPU.h"
+#include "ColorTools_GPU.h"
 
-using namespace cpu;
+using namespace gpu;
 
 using std::cout;
 using std::endl;
@@ -31,6 +29,7 @@ class MandelbrotMath
 
     public:
 
+	__device__
 	MandelbrotMath(uint n) :
 		calibreur(Interval<float>(0, n), Interval<float>(0, 1))
 	    {
@@ -42,6 +41,7 @@ class MandelbrotMath
 	// 	calibreur
 	// 	IntervalF
 
+	__device__
 	virtual ~MandelbrotMath()
 	    {
 	    // rien
@@ -53,6 +53,7 @@ class MandelbrotMath
 
     public:
 
+	__device__
 	void colorXY(uchar4* ptrColor, float x, float y)
 	    {
 	    int z = f(x, y);
@@ -75,6 +76,7 @@ class MandelbrotMath
 
     private:
 
+	__device__
 	int f(float x, float y)
 	    {
 	    float a = 0;

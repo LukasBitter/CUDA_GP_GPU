@@ -4,15 +4,11 @@
 #include "MathTools.h"
 #include <iostream>
 
-#include "cudaType_GPU.h"
-#include "Calibreur_GPU.h"
-#include "ColorTools_GPU.h"
-#include "Interval_GPU.h"
+#include "Calibreur_CPU.h"
+#include "ColorTools_CPU.h"
 
-using namespace gpu;
+using namespace cpu;
 
-using std::cout;
-using std::endl;
 
 /*----------------------------------------------------------------------*\
  |*			Declaration 					*|
@@ -31,7 +27,6 @@ class MandelbrotMath
 
     public:
 
-	__device__
 	MandelbrotMath(uint n) :
 		calibreur(Interval<float>(0, n), Interval<float>(0, 1))
 	    {
@@ -43,7 +38,6 @@ class MandelbrotMath
 	// 	calibreur
 	// 	IntervalF
 
-	__device__
 	virtual ~MandelbrotMath()
 	    {
 	    // rien
@@ -55,7 +49,6 @@ class MandelbrotMath
 
     public:
 
-	__device__
 	void colorXY(uchar4* ptrColor, float x, float y)
 	    {
 	    int z = f(x, y);
@@ -78,17 +71,15 @@ class MandelbrotMath
 
     private:
 
-	__device__
 	int f(float x, float y)
 	    {
 	    float a = 0;
 	    float b = 0;
 	    int k = 0;
-	    float aCopy;
 
-	    while ((a * a + b * b) <= 4 && k <= n)
+	    while ((a * a + b * b) < 4 && k < n)
 		{
-		aCopy = a;
+		float aCopy = a;
 		a = (a * a - b * b) + x;
 		b = 2 * aCopy * b + y;
 		k++;

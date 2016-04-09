@@ -1,9 +1,12 @@
 #include "MandelbrotProvider.h"
-#include "MathTools.h"
+#include "Mandelbrot.h"
 
-#include "../device/MandelbrotDevice.h"
+#include "MathTools.h"
+#include "Grid.h"
+
 #include "ImageAnimable_GPU.h"
 #include "DomaineMath_GPU.h"
+
 using namespace gpu;
 
 /*----------------------------------------------------------------------*\
@@ -53,7 +56,7 @@ Animable_I<uchar4>* MandelbrotProvider::createAnimable(void)
     dim3 db = dim3(480, 1, 1);   	// disons a optimiser, depend du gpu
     Grid grid(dg, db);  // TODO definissez une grille cuda (dg, db)
 
-    return new Mandelbrot(grille, dw, dh, nMin, nMax, domaineMath);
+    return new Mandelbrot(grid, dw, dh, nMin, nMax, domaineMath);
     }
 
 /**

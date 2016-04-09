@@ -10,7 +10,7 @@ using namespace cpu;
  |*			Declaration 					*|
  \*---------------------------------------------------------------------*/
 
-/*--------------------------------------*\
+/*------c--------------------------------*\
  |*		Public			*|
  \*-------------------------------------*/
 
@@ -68,7 +68,7 @@ class RipplingMath
 	    double fi = i - this->dim2;
 	    double fj = j - this->dim2;
 
-	    *ptrResult = sqrt(pow(fi, 2) + pow(fj, 2));
+	    *ptrResult = sqrt(fi*fi + fj*fj);
 
 	    }
 

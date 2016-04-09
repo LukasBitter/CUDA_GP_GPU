@@ -41,7 +41,7 @@ Animable_I<uchar4>* MandelbrotProvider::createAnimable(void)
     //DomaineMath domaineMath = DomaineMath(0, 0, 2 * PI, 2 * PI);
     //DomaineMath domaineMath = DomaineMath(-2.1, -1.3, 0.8, 1.3);
     //DomaineMath domaineMath = DomaineMath(-1.7, -1.3, 1.3, 0.8);
-    DomaineMath domaineMath = DomaineMath(-1.3578, 0.0013973, -1.3968, -0.03362);
+    DomaineMath domaineMath = DomaineMath(-1.3968, -0.03362, -1.3578, 0.0013973);
 
     // Animation;
     uint nMin = 20;

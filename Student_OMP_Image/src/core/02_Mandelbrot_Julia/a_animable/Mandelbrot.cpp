@@ -24,7 +24,7 @@ Mandelbrot::Mandelbrot(uint w, uint h, uint nMin, uint nMax, const DomaineMath& 
     {
     // Tools
     this->t = nMin;					// protected dans super classe Animable
-    this->parallelPatern = ParallelPatern::OMP_MIXTE;   // protected dans super classe Animable
+    this->parallelPatern = ParallelPatern::OMP_ENTRELACEMENT;   // protected dans super classe Animable
 
     // OMP
     cout << "\n[Mandelbrot] : OMP : nbThread = " << this->nbThread << endl; // protected dans super classe Animable
@@ -84,7 +84,6 @@ void Mandelbrot::processEntrelacementOMP(uchar4* ptrTabPixels, uint w, uint h, c
 #pragma omp parallel
 	{
 	const int NB_THREAD = OmpTools::getNbThread(); // dans region parallel
-
 	const int TID = OmpTools::getTid();
 	int s = TID; // in [0,...
 
