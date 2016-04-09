@@ -1,0 +1,6 @@
+1460193391180	Move 'MandelbrotProvider.cpp' to 'provider'
+1460193403635	Move 'MandelbrotProvider.h' to 'provider'
+1460195214979	Move 2 resources to 'host'
+1460208594042	Rename resource 'MandelbrotDevice.h'
+1460208604258	Rename resource 'MandelbrotDevice.cu'
+1460208760902	Rename resource 'MandelBrotDevice.cpp'
