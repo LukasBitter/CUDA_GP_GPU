@@ -6,6 +6,7 @@
 
 #include "Calibreur_GPU.h"
 #include "ColorTools_GPU.h"
+#include "FractalMath.h"
 
 using namespace gpu;
 
@@ -20,7 +21,7 @@ using std::endl;
  |*		Public			*|
  \*-------------------------------------*/
 
-class MandelbrotMath
+class MandelbrotMath: public FractalMath
     {
 
 	/*--------------------------------------*\
@@ -29,11 +30,9 @@ class MandelbrotMath
 
     public:
 
-	__device__
-	MandelbrotMath(uint n) :
-		calibreur(Interval<float>(0, n), Interval<float>(0, 1))
+	__device__ MandelbrotMath(uint n) :
+		FractalMath(n)
 	    {
-	    this->n = n;
 	    }
 
 	// constructeur copie automatique car pas pointeur dans
@@ -42,7 +41,7 @@ class MandelbrotMath
 	// 	IntervalF
 
 	__device__
-	virtual ~MandelbrotMath()
+	  virtual ~MandelbrotMath()
 	    {
 	    // rien
 	    }
@@ -50,29 +49,6 @@ class MandelbrotMath
 	/*--------------------------------------*\
 	|*		Methodes		*|
 	 \*-------------------------------------*/
-
-    public:
-
-	__device__
-	void colorXY(uchar4* ptrColor, float x, float y)
-	    {
-	    int z = f(x, y);
-
-	    if(z < n)
-		{
-		float hue01 = z;
-		calibreur.calibrer(hue01);
-		ColorTools::HSB_TO_RVB(hue01, ptrColor); // update color
-		}
-	    else
-		{
-		ptrColor->x = 0;
-		ptrColor->y = 0;
-		ptrColor->z = 0;
-		}
-
-	    ptrColor->w = 255; // opaque
-	    }
 
     private:
 
@@ -92,21 +68,12 @@ class MandelbrotMath
 		k++;
 		}
 
-	return k;
+	    return k;
 	    }
-
 
 	/*--------------------------------------*\
 	|*		Attributs		*|
 	 \*-------------------------------------*/
-
-    private:
-
-	// Input
-	uint n;
-
-	// Tools
-	Calibreur<float> calibreur;
 
     };
 /*----------------------------------------------------------------------*\

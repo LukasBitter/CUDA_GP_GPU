@@ -1,4 +1,4 @@
-18:37:24 **** Clean-only build of configuration CudaGCC for project Student_demo_Image ****
+19:58:54 **** Clean-only build of configuration CudaGCC for project Student_demo_Image ****
 makeCudaGCC.sh clean 
 
 --------------------------------------------------------
@@ -61,5 +61,5 @@ Cuda compilation tools, release 7.0, V7.0.27
 ==================================================================================
 
 
-18:37:24 Build Finished (took 311ms)
+19:58:54 Build Finished (took 312ms)
 
