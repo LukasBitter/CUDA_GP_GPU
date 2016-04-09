@@ -44,8 +44,8 @@ Animable_I<uchar4>* MandelbrotProvider::createAnimable(void)
     DomaineMath domaineMath = DomaineMath(-1.3578, 0.0013973, -1.3968, -0.03362);
 
     // Animation;
-    uint nMin = 20;
-    uint nMax = 100;
+    uint nMin = 0;
+    uint nMax = 102;
 
     // Dimension
     int dw = 16 * 60 * 2;
@@ -53,7 +53,7 @@ Animable_I<uchar4>* MandelbrotProvider::createAnimable(void)
 
     // Grid Cuda
     dim3 dg = dim3(32, 1, 1);  		// disons a optimiser, depend du gpu
-    dim3 db = dim3(480, 1, 1);   	// disons a optimiser, depend du gpu
+    dim3 db = dim3(32, 1, 1);   	// disons a optimiser, depend du gpu
     Grid grid(dg, db);  // TODO definissez une grille cuda (dg, db)
 
     return new Mandelbrot(grid, dw, dh, nMin, nMax, domaineMath);

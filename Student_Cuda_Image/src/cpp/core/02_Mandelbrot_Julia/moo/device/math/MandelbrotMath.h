@@ -68,7 +68,7 @@ class MandelbrotMath
 		{
 		ptrColor->x = 0;
 		ptrColor->y = 0;
-		ptrColor->w = 0;
+		ptrColor->z = 0;
 		}
 
 	    ptrColor->w = 255; // opaque

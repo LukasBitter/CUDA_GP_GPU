@@ -49,6 +49,7 @@ __global__ void mandelbrot(uchar4* ptrTabPixels, uint w, uint h, uint t, Domaine
 	{
 	IndiceTools::toIJ(s, w, &pixelI, &pixelJ); 	// update (pixelI, pixelJ)
 
+    	//mandelbrotMath.colorXY(ptrTabPixels,pixelI, pixelJ); 	// update color
 	workPixel(&ptrTabPixels[s], pixelI, pixelJ, domaineMath, &mandelbrotMath);
 
 	s += NB_THREAD;
