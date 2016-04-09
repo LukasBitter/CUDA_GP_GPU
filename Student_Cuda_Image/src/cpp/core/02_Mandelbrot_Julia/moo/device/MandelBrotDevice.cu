@@ -3,6 +3,8 @@
 #include <Device.h>
 
 #include "MandelbrotMath.h"
+#include "FractalMath.h"
+#include "JuliaMath.h"
 
 #include "IndiceTools_GPU.h"
 #include "DomaineMath_GPU.h"
@@ -22,7 +24,7 @@ __global__ void mandelbrot(uchar4* ptrTabPixels, uint w, uint h, uint t, Domaine
  |*		Private			*|
  \*-------------------------------------*/
 
-__device__ static void workPixel(uchar4* ptrColorIJ, int i, int j, const DomaineMath& domaineMath, MandelbrotMath* ptrMandelbrotMath);
+__device__ static void workPixel(uchar4* ptrColorIJ, int i, int j, const DomaineMath& domaineMath, FractalMath* ptrMandelbrotMath);
 /*----------------------------------------------------------------------*\
  |*			Implementation 					*|
  \*---------------------------------------------------------------------*/
@@ -33,7 +35,8 @@ __device__ static void workPixel(uchar4* ptrColorIJ, int i, int j, const Domaine
 
 __global__ void mandelbrot(uchar4* ptrTabPixels, uint w, uint h, uint t, DomaineMath domaineMath)
     {
-    MandelbrotMath mandelbrotMath = MandelbrotMath(t);
+    //MandelbrotMath mandelbrotMath = MandelbrotMath(t);
+    FractalMath *m = new JuliaMath(t, -2.2, 2.2);
 
     const int NB_THREAD = Indice2D::nbThread();
     const int TID = Indice2D::tid();
@@ -50,10 +53,11 @@ __global__ void mandelbrot(uchar4* ptrTabPixels, uint w, uint h, uint t, Domaine
 	IndiceTools::toIJ(s, w, &pixelI, &pixelJ); 	// update (pixelI, pixelJ)
 
     	//mandelbrotMath.colorXY(ptrTabPixels,pixelI, pixelJ); 	// update color
-	workPixel(&ptrTabPixels[s], pixelI, pixelJ, domaineMath, &mandelbrotMath);
+	workPixel(&ptrTabPixels[s], pixelI, pixelJ, domaineMath, m);
 
 	s += NB_THREAD;
 	}
+    delete m;
     }
 
 /*--------------------------------------*\
@@ -70,7 +74,7 @@ __global__ void mandelbrot(uchar4* ptrTabPixels, uint w, uint h, uint t, Domaine
  */
 
 __device__
-void workPixel(uchar4* ptrColorIJ, int i, int j,const DomaineMath& domaineMath, MandelbrotMath* ptrMandelbrotMath)
+void workPixel(uchar4* ptrColorIJ, int i, int j,const DomaineMath& domaineMath, FractalMath* ptrMandelbrotMath)
     {
     // (i,j) domaine ecran dans N2
     // (x,y) domaine math dans R2

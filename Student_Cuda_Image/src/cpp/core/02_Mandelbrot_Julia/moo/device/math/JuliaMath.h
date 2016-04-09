@@ -21,7 +21,7 @@ using std::endl;
  |*		Public			*|
  \*-------------------------------------*/
 
-class JuliaMath: public JuliaMath
+class JuliaMath: public FractalMath
     {
 
 	/*--------------------------------------*\
