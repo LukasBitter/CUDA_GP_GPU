@@ -1,9 +1,9 @@
-19:58:53 **** Clean-only build of configuration Visual_parallel for project BilatTools_CPP ****
+11:27:17 **** Clean-only build of configuration Visual_parallel for project BilatTools_CPP ****
 makeVisual.bat clean 
 Cannot run program "makeVisual.bat": Unknown reason
 
 Error: Program "makeVisual.bat" not found in PATH
 PATH=[/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/etc/cbi/dev/make]
 
-19:58:53 Build Finished (took 2ms)
+11:27:17 Build Finished (took 2ms)
 
