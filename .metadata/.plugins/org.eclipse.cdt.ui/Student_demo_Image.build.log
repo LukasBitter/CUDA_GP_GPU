@@ -1,4 +1,4 @@
-11:27:18 **** Clean-only build of configuration CudaGCC for project Student_demo_Image ****
+13:52:18 **** Clean-only build of configuration CudaGCC for project Student_demo_Image ****
 makeCudaGCC.sh clean 
 
 --------------------------------------------------------
@@ -48,18 +48,18 @@ Cuda compilation tools, release 7.0, V7.0.27
 
 
 ==================================================================================
-[CBI] -> Target            : Student_Cuda_Image_gcc_cuda_70_x86_64
+[CBI] -> Target            : Student_demo_Image_gcc_cuda_70_x86_64
 [CBI] -> Task			     : DELETE
 [CBI]
-[CBI] -> Delete .obj       : /tmp/ramdrive/arc13/Targets/Student_Cuda_Image/obj
-[CBI] -> Delete .bin       : /tmp/ramdrive/arc13/Targets/Student_Cuda_Image/bin
-[CBI] -> Delete .cubin     : /tmp/ramdrive/arc13/Targets/Student_Cuda_Image/cubin
-[CBI] -> Delete doc        : /tmp/ramdrive/arc13/Targets/Student_Cuda_Image/doc
+[CBI] -> Delete .obj       : /tmp/ramdrive/arc13/Targets/Student_demo_Image/obj
+[CBI] -> Delete .bin       : /tmp/ramdrive/arc13/Targets/Student_demo_Image/bin
+[CBI] -> Delete .cubin     : /tmp/ramdrive/arc13/Targets/Student_demo_Image/cubin
+[CBI] -> Delete doc        : /tmp/ramdrive/arc13/Targets/Student_demo_Image/doc
 [CBI]
-[CBI] -> Delete deploy     : ../RELEASE/bin/Student_Cuda_Image_gcc_cuda_70_x86_64.run
-[CBI] -> Delete deploy doc : ../RELEASE/doc/Student_Cuda_Image_gcc_cuda_70_x86_64.doc.tar.gz
+[CBI] -> Delete deploy     : ../RELEASE/bin/Student_demo_Image_gcc_cuda_70_x86_64.run
+[CBI] -> Delete deploy doc : ../RELEASE/doc/Student_demo_Image_gcc_cuda_70_x86_64.doc.tar.gz
 ==================================================================================
 
 
-11:27:18 Build Finished (took 314ms)
+13:52:18 Build Finished (took 316ms)
 

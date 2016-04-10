@@ -1,0 +1,65 @@
+18:03:47 **** Clean-only build of configuration CudaGCC_parallel for project Student_Demo_Image ****
+makeCudaGCC.sh clean 
+
+--------------------------------------------------------
+[Runtime] : gcc x86
+--------------------------------------------------------
+
+[Runtime] : Cuda  : /usr/local/cuda/lib64
+[Runtime] : Cula  : /usr/local/cula/lib64
+[Runtime] : MKL   : /opt/intel/mkl/lib/intel64
+
+[Runtime] : GL/GLEW/GLU
+[Runtime] : FreeGlut
+[Runtime] : Java (JNI)
+[Runtime] : X11
+
+[Runtime] : BOOST   : /opt/api/ext/boost/[user-version]/lib/gcc
+[Runtime] : OpenCV  : /opt/api/ext/opencv/[user-version]/lib
+[Runtime] : CppTest : /opt/api/ext/cpptest/[user-version]/LIB-STATIC/gcc
+[Runtime] : gphoto2  : /opt/api/ext/gphoto2/[user-version]/lib
+
+[Runtime] : bilat_tools
+[Runtime] : bilat_fenetrage
+[Runtime] : bilat_opengl
+[Runtime] : bilat_image
+[Runtime] : bilat_graphe2d
+[Runtime] : bilat_multicourbe_cuda
+[Runtime] : bilat_surface
+
+--------------------------------------------------------
+[Runtime] : gcc x86 : Ready!
+--------------------------------------------------------
+
+
+g++ (Ubuntu 4.8.4-2ubuntu1~14.04.1) 4.8.4
+Copyright (C) 2013 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2015 NVIDIA Corporation
+Built on Mon_Feb_16_22:59:02_CST_2015
+Cuda compilation tools, release 7.0, V7.0.27
+
+
+[CUDA GCC] : clean
+
+
+==================================================================================
+[CBI] -> Target            : Student_Demo_Image_gcc_cuda_70_x86_64
+[CBI] -> Task			     : DELETE
+[CBI]
+[CBI] -> Delete .obj       : /tmp/ramdrive/arc13/Targets/Student_Demo_Image/obj
+[CBI] -> Delete .bin       : /tmp/ramdrive/arc13/Targets/Student_Demo_Image/bin
+[CBI] -> Delete .cubin     : /tmp/ramdrive/arc13/Targets/Student_Demo_Image/cubin
+[CBI] -> Delete doc        : /tmp/ramdrive/arc13/Targets/Student_Demo_Image/doc
+[CBI]
+[CBI] -> Delete deploy     : ../RELEASE/bin/Student_Demo_Image_gcc_cuda_70_x86_64.run
+[CBI] -> Delete deploy doc : ../RELEASE/doc/Student_Demo_Image_gcc_cuda_70_x86_64.doc.tar.gz
+==================================================================================
+
+
+18:03:47 Build Finished (took 316ms)
+

@@ -1,0 +1,119 @@
+#pragma once
+
+#include <math.h>
+#include "MathTools.h"
+#include <iostream>
+#include <complex>
+
+#include "Calibreur_GPU.h"
+#include "ColorTools_GPU.h"
+
+using namespace gpu;
+
+using std::cout;
+using std::endl;
+using namespace std;
+
+/*----------------------------------------------------------------------*\
+ |*			Declaration 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+class NewtonMath
+    {
+
+	/*--------------------------------------*\
+	|*		Constructor		*|
+	 \*-------------------------------------*/
+
+    public:
+
+	__device__ NewtonMath(uint n) :
+		calibreur(Interval<float>(0, n), Interval<float>(0, 1))
+	    {
+	    this->n = n;
+	    }
+
+	// constructeur copie automatique car pas pointeur dans
+	//	NewtonMath
+	// 	calibreur
+	// 	IntervalF
+
+	__device__
+	    virtual ~NewtonMath()
+	    {
+	    // rien
+	    }
+
+	/*--------------------------------------*\
+	|*		Methodes		*|
+	 \*-------------------------------------*/
+
+    public:
+
+	__device__
+	void colorXY(uchar4* ptrColor, float x, float y)
+	    {
+	    int z = next(x, y);
+
+	    if (z < n)
+		{
+		float hue01 = z;
+		calibreur.calibrer(hue01);
+		ColorTools::HSB_TO_RVB(hue01, ptrColor); // update color
+		}
+	    else
+		{
+		ptrColor->x = 0;
+		ptrColor->y = 0;
+		ptrColor->z = 0;
+		}
+
+	    ptrColor->w = 255; // opaque
+	    }
+    private:
+
+
+	__device__ complex<float> f1(complex<float> x) {
+		complex<float> d = x.real * x.real * x.real - 3 * x.real * x.imag * x.imag - 1;
+		return d;
+	}
+
+	__device__ complex<float> f2(complex<float> y) {
+			complex<float> d = y.imag * y.imag * y.imag - 3 * y.real * y.real * y.imag;
+			return d;
+		}
+
+
+	__host__ __device__ float newton(complex x0, float eps, int maxiter) {
+	  complex x = x0;
+	  int iter = 0;
+	  while (abs(f(x)) > eps && iter <= maxiter) {
+	    iter++;
+	    x = x - f(x)/df(x);
+	  }
+	  return iter;
+	}
+	/*--------------------------------------*\
+	|*		Attributs		*|
+	 \*-------------------------------------*/
+
+    protected:
+
+	// Input
+	uint n;
+
+    private:
+
+	// Tools
+	Calibreur<float> calibreur;
+
+    };
+/*----------------------------------------------------------------------*\
+ |*			End	 					*|
+ \*---------------------------------------------------------------------*/
+
+

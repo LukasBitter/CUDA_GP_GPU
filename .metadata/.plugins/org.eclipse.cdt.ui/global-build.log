@@ -1,4 +1,4 @@
-11:32:05 **** Incremental Build of configuration CudaGCC_parallel for project Student_Cuda_Image ****
+18:03:50 **** Build of configuration CudaGCC_parallel for project Student_Cuda_Image ****
 makeCudaGCC.sh jall 
 
 --------------------------------------------------------
@@ -136,6 +136,9 @@ Cuda compilation tools, release 7.0, V7.0.27
 [CBI] ->              : src/cpp/core/01_Rippling/01_animable/device/math/
 [CBI] ->              : src/cpp/core/01_Rippling/01_animable/host/
 [CBI] ->              : src/cpp/core/01_Rippling/02_provider/
+[CBI] ->              : src/cpp/core/025_Newton/moo/device/math/
+[CBI] ->              : src/cpp/core/025_Newton/moo/host/
+[CBI] ->              : src/cpp/core/025_Newton/provider/
 [CBI] ->              : src/cpp/core/02_Mandelbrot_Julia/moo/device/math/
 [CBI] ->              : src/cpp/core/02_Mandelbrot_Julia/moo/host/
 [CBI] ->              : src/cpp/core/02_Mandelbrot_Julia/provider/
@@ -268,7 +271,64 @@ Cuda compilation tools, release 7.0, V7.0.27
 
 [CBI] -> Compilation parallel (12 threads)
 
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/main.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/mainAnimable.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/mainBarivox.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/mainBruteForce.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/mainImage.cpp
 [Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/02_Mandelbrot_Julia/provider/JuliaProvider.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/02_Mandelbrot_Julia/provider/MandelbrotProvider.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/01_Rippling/02_provider/RipplingProvider.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/025_Newton/provider/NewtonProvider.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/AleaTools.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/Chrono.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/Fps.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/LimitsTools.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/MathTools.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/Progress.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/StringTools.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/TabTools.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/namespace_cpu/ColorTools_CPU.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/namespace_cpu/IndiceTools_CPU.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OMP/src/core/OMP_Tools/cpp/OmpTools.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/capture/video/CVCaptureVideo.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/capture/webcam/CVCaptureWebcam.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/appearance/AppearanceShape.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/drawer/LineDrawer.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/drawer/ShapeDrawer.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/drawer/ShapeDrawerTransparant.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/shape/Circle.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/shape/Line.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/shape/Polygon.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/shape/Rectangle.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/shape/Shape.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/shape/ShapeGroup.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/shapeOverlay/shape/Triangle.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/view/FactoryImageViewer.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/view/viewer/CVViewerUcharBGR.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/show/view/viewerMat/CVViewerMatBGR.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/tools/OpencvTools.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_OpenCV/src/core/tools/cpu/OpencvTools_CPU.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda/src/core/cudatools/header/host/Options.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda/src/core/cudatools/cpp/host/cudaTools.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda/src/core/cudatools/cpp/host/Device.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda/src/core/cudatools/cpp/host/Grid.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda_Image/src/core/tools/Settings_GPU.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda_Image/src/core/tools/opencv/OpencvTools_GPU.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda_Image/src/core/tools/imp/03_api_barivox/BarivoxOutput.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda_Image/src/core/tools/imp/02_api_force_brute/ForceBrutOutput.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda_Image/src/core/tools/imp/02_api_force_brute/VariateurData.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda_Image/src/core/tools/imp/02_api_force_brute/maillage/GridMaillage.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda_Image/src/core/tools/imp/02_api_force_brute/maillage/ProviderGridMaillage1D.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda_Image/src/core/tools/imp/02_api_force_brute/maillage/ProviderGridMaillage2D.cpp
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/02_Mandelbrot_Julia/moo/device/FractalDevice.cu
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/02_Mandelbrot_Julia/moo/host/Fractal.cu
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/02_Mandelbrot_Julia/moo/host/Julia.cu
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/02_Mandelbrot_Julia/moo/host/Mandelbrot.cu
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Rippling/01_animable/device/ripplingDevice.cu
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Rippling/01_animable/host/Rippling.cu
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/025_Newton/moo/device/NewtonDevice.cu
+[Student_Cuda_Image_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/025_Newton/moo/host/Newton.cu
 
 [CBI] -> Linking to   : /tmp/ramdrive/arc13/Targets/Student_Cuda_Image/bin/Student_Cuda_Image_gcc_cuda_70_x86_64.run
 
@@ -367,7 +427,7 @@ Cuda compilation tools, release 7.0, V7.0.27
 [CBI] ->
 [CBI] -> Compilateur  : g++) && nvcc
 [CBI] -> Task		  : End Compiling-Linking !
-[CBI] -> Time		  : 2 (s)
+[CBI] -> Time		  : 8 (s)
 ==================================================================================
 
 

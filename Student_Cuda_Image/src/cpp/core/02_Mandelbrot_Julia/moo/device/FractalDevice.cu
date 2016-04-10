@@ -22,7 +22,7 @@ __global__ void mandelbrot(uchar4* ptrTabPixels, uint w, uint h, uint t, Domaine
 
 __global__ void julia(uchar4* ptrTabPixels, uint w, uint h, uint t, float c1, float c2, DomaineMath domaineMath);
 
-/*--------------------------------------*\
+ /*--------------------------------------*\
  |*		Private			*|
  \*-------------------------------------*/
 
@@ -77,6 +77,7 @@ __global__ void julia(uchar4* ptrTabPixels, uint w, uint h, uint t, float c1, fl
 
     delete m;
     }
+
 
 /*--------------------------------------*\
  |*		Private			*|
