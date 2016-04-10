@@ -20,6 +20,8 @@ using namespace gpu;
 
 __global__ void mandelbrot(uchar4* ptrTabPixels, uint w, uint h, uint t, DomaineMath domaineMath);
 
+__global__ void julia(uchar4* ptrTabPixels, uint w, uint h, uint t, float c1, float c2, DomaineMath domaineMath);
+
 /*--------------------------------------*\
  |*		Private			*|
  \*-------------------------------------*/
@@ -32,11 +34,8 @@ __device__ static void workPixel(uchar4* ptrColorIJ, int i, int j, const Domaine
 /*--------------------------------------*\
  |*		Public			*|
  \*-------------------------------------*/
-
-__global__ void mandelbrot(uchar4* ptrTabPixels, uint w, uint h, uint t, DomaineMath domaineMath)
+__device__ void fractal(uchar4* ptrTabPixels, uint w, uint h, uint t, DomaineMath &domaineMath, FractalMath* m)
     {
-    //MandelbrotMath mandelbrotMath = MandelbrotMath(t);
-    FractalMath *m = new JuliaMath(t, -2.2, 2.2);
 
     const int NB_THREAD = Indice2D::nbThread();
     const int TID = Indice2D::tid();
@@ -52,11 +51,30 @@ __global__ void mandelbrot(uchar4* ptrTabPixels, uint w, uint h, uint t, Domaine
 	{
 	IndiceTools::toIJ(s, w, &pixelI, &pixelJ); 	// update (pixelI, pixelJ)
 
-    	//mandelbrotMath.colorXY(ptrTabPixels,pixelI, pixelJ); 	// update color
 	workPixel(&ptrTabPixels[s], pixelI, pixelJ, domaineMath, m);
 
 	s += NB_THREAD;
 	}
+    }
+
+
+__global__ void mandelbrot(uchar4* ptrTabPixels, uint w, uint h, uint t, DomaineMath domaineMath)
+    {
+    //MandelbrotMath mandelbrotMath = MandelbrotMath(t);
+    FractalMath *m = new MandelbrotMath(t);
+
+    fractal(ptrTabPixels, w, h, t, domaineMath, m);
+
+    delete m;
+    }
+
+
+__global__ void julia(uchar4* ptrTabPixels, uint w, uint h, uint t, float c1, float c2, DomaineMath domaineMath)
+    {
+    FractalMath *m = new JuliaMath(t, c1, c2);
+
+    fractal(ptrTabPixels, w, h, t, domaineMath, m);
+
     delete m;
     }
 

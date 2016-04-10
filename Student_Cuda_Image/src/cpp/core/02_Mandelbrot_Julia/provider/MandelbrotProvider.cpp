@@ -43,9 +43,10 @@ Animable_I<uchar4>* MandelbrotProvider::createAnimable(void)
     //DomaineMath domaineMath = DomaineMath(-1.7, -1.3, 1.3, 0.8);
     DomaineMath domaineMath = DomaineMath(-1.3578, 0.0013973, -1.3968, -0.03362);
 
+
     // Animation;
-    uint nMin = 0;
-    uint nMax = 102;
+    uint nMin = 20;
+    uint nMax = 100;
 
     // Dimension
     int dw = 16 * 60 * 2;

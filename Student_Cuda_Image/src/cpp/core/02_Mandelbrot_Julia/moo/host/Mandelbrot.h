@@ -3,6 +3,7 @@
 #include "cudaTools.h"
 #include "Variateur_GPU.h"
 #include "Animable_I_GPU.h"
+#include "Fractal.h"
 using namespace gpu;
 
 /*----------------------------------------------------------------------*\
@@ -13,7 +14,7 @@ using namespace gpu;
  |*		Public			*|
  \*-------------------------------------*/
 
-class Mandelbrot: public Animable_I<uchar4>
+class Mandelbrot: public Fractal
     {
 
 	/*--------------------------------------*\
@@ -32,34 +33,17 @@ class Mandelbrot: public Animable_I<uchar4>
 
     public:
 
+	void startFractal(uchar4* ptrTabPixels, uint w, uint h, const DomaineMath& domaineMath);
+
 	/*-------------------------*\
-	|*   Override Animable_I   *|
+	|*   Override Fractal      *|
 	 \*------------------------*/
-
-
-	/**
-	 * Call periodicly by the api
-	 */
-	virtual void process(uchar4* ptrTabPixels, uint w, uint h, const DomaineMath& domaineMath);
-
-	/**
-	 * Call periodicly by the api
-	 */
-	virtual void animationStep();
-
-    private:
-
 
 	/*--------------------------------------*\
 	|*		Attribut		*|
 	 \*-------------------------------------*/
 
-    private:
-	// Tools
-	Variateur<int> variateurAnimation;
-
     };
-
 
 /*----------------------------------------------------------------------*\
  |*			End	 					*|
