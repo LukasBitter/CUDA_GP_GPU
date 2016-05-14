@@ -52,7 +52,7 @@ int mainImage(Settings& settings)
     ImageOption nozoomable(false);
 
     Viewer<RipplingProvider> rippling(nozoomable, 0, 0); //  imageOption px py
-    Viewer<MandelbrotProvider> mandelbrot(zoomable, 0, 0); //  imageOption px py
+    //Viewer<MandelbrotProvider> mandelbrot(zoomable, 0, 0); //  imageOption px py
 
     GLUTImageViewers::runALL();  // Bloquant, Tant qu'une fenetre est ouverte
 

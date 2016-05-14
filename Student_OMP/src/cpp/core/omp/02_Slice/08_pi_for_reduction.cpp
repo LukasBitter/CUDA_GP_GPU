@@ -30,9 +30,9 @@ static double piOMPforReduction(int n);
  |*		Public			*|
  \*-------------------------------------*/
 
-bool isPiOMPforReduction_Ok(int n)
+bool isPiCUDAforReduction_Ok(int n)
     {
-    return isAlgoPI_OK(piOMPforReduction, n, "Pi OMP for reduction-integrer");
+    return isAlgoPI_OK(piCUDAforReduction, n, "Pi CUDA for reduction-integrer");
     }
 
 /*--------------------------------------*\
@@ -43,7 +43,7 @@ bool isPiOMPforReduction_Ok(int n)
  * pattern omp usefull : idem desyncronisation-promotionTab ,mais avec syntaxe plus courte!
  * Si on enleve le pragma, le code est le meme que le sequentiel!
  */
-double piOMPforReduction(int n)
+double piCUDAforReduction(int n)
     {
     const double DX = 1 / (double) n;
     double xi;

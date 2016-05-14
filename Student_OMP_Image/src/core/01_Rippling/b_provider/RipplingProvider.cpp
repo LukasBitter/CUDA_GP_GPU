@@ -43,10 +43,12 @@ Animable_I<uchar4>* RipplingProvider::createAnimable(void)
     float dt = 1;
 
     // Dimension
+
+
     int dw = 16 * 60;
     int dh = 16 * 60;
-
     return new Rippling(dw, dh, dt);
+
     }
 
 /**
@@ -55,7 +57,7 @@ Animable_I<uchar4>* RipplingProvider::createAnimable(void)
 Image_I* RipplingProvider::createImageGL(void)
     {
     ColorRGB_01 colorTexte(0, 1, 0); // green
-    return new ImageAnimable_RGBA_uchar4(createAnimable(),colorTexte);
+    return new ImageAnimable_RGBA_uchar4(createAnimable(), colorTexte);
     }
 
 /*--------------------------------------*\

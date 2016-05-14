@@ -88,8 +88,8 @@ void initCuda(Options& option)
     HANDLE_ERROR(cudaSetDevice(deviceId));
 
     // It can be usefull to preload driver, by example to practice benchmarking! (sometimes slow under linux)
-    Device::loadCudaDriver(deviceId);
-    // Device::loadCudaDriverAll();// Force driver to be load for all GPU
+    // Device::loadCudaDriver(deviceId);
+    Device::loadCudaDriverAll();// Force driver to be load for all GPU
     }
 
 int start(Options& option)

@@ -3,7 +3,6 @@
 #include <math.h>
 #include "MathTools.h"
 #include <iostream>
-#include <complex>
 
 #include "Calibreur_GPU.h"
 #include "ColorTools_GPU.h"
@@ -21,6 +20,11 @@ using namespace std;
 /*--------------------------------------*\
  |*		Public			*|
  \*-------------------------------------*/
+
+struct complexe{
+	float re;
+	float im;
+};
 
 class NewtonMath
     {
@@ -57,7 +61,10 @@ class NewtonMath
 	__device__
 	void colorXY(uchar4* ptrColor, float x, float y)
 	    {
-	    int z = 0;//newton(0);
+	    complexe c;
+	    c.re = x;
+	    c.im = y;
+	    int z = newton(c);
 
 	    if (z < n)
 		{
@@ -75,30 +82,32 @@ class NewtonMath
 	    ptrColor->w = 255; // opaque
 	    }
     private:
-/*
 
-	__device__ complex<float> f1(complex<float> x) {
-		complex<float> d;
-		// d = complex<float>(  x.real * x.real * x.real - 3 * x.real * x.imag * x.imag - 1);
+
+	__device__ complexe f1(complexe x) {
+		complexe d;
+		d.re =  x.re * x.re * x.re - 3 * x.re * x.im * x.im - 1;
 		return d;
 	}
 
-	__device__ complex<float> f2(complex<float> y) {
-		complex<float> d;
-		//d = y.imag * y.imag * y.imag - 3 * y.real * y.real * y.imag;
+	__device__ complexe f2(complexe y) {
+		complexe d;
+		d.im = y.im * y.im * y.im - 3 * y.re * y.re * y.im;
 		return d;
 		}
 
 
-	__device__ float newton(complex<float> x0) {
-	  //complex<float> x = x0;
-	  int iter = 0;
-	  //while ( iter <= n) {
-	    //iter++;
-	    //x = x - f1(x)/f2(x);
-	  //}
-	  return iter;
-	}*/
+	__device__ float newton(complexe x0) {
+	  complexe x = x0;
+	  float limit = 0.001;
+	  int i = 0;
+	  while (sqrt(x.re*x.re + x.im*x.im) > limit && i <= n) {
+	    i++;
+	    x.re = x.re - f1(x).re/f2(x).re;
+	    x.im = x.im - f1(x).im/f2(x).im;
+	  }
+	  return i;
+	}
 	/*--------------------------------------*\
 	|*		Attributs		*|
 	 \*-------------------------------------*/

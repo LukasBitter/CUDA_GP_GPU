@@ -55,10 +55,6 @@ __device__ void secondaire(float* ptrDevV1, float* ptrDevV2, float* ptrDevW, int
 
     //TODO pattern entrelacement
 
-    uchar4 color;
-    int pI;	// in [0,h[
-    int pJ; // in [0,w[
-
     int s = TID;
     while (s < n)
 	{

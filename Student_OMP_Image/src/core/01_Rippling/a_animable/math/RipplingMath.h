@@ -59,7 +59,7 @@ class RipplingMath
 	    {
 	    float dijValue;
 	    dij(i, j, &dijValue);
-	    *ptrlevelGris = 128 + 127 * cos(dijValue / 10 - t / 7) / (dijValue / 10 + 1);
+	    *ptrlevelGris = 128 + 127 * cosf(dijValue / 10 - t / 7) / (dijValue / 10 + 1);
 
 	    }
 
