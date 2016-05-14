@@ -1,9 +1,9 @@
-18:03:46 **** Clean-only build of configuration IntelWin_parallel for project BilatTools_OpenCV ****
+22:21:16 **** Clean-only build of configuration IntelWin_parallel for project BilatTools_OpenCV ****
 makeIntelWin.bat clean 
 Cannot run program "makeIntelWin.bat": Unknown reason
 
 Error: Program "makeIntelWin.bat" not found in PATH
 PATH=[/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/etc/cbi/dev/make]
 
-18:03:46 Build Finished (took 2ms)
+22:21:16 Build Finished (took 2ms)
 

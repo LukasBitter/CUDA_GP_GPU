@@ -1,0 +1,116 @@
+#include "Histogramme.h"
+
+#include <iostream>
+
+#include "Device.h"
+
+using std::cout;
+using std::endl;
+
+/*----------------------------------------------------------------------*\
+ |*			Declaration 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Imported	 	*|
+ \*-------------------------------------*/
+
+extern __global__ void histogramme(int n);
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+/*----------------------------------------------------------------------*\
+ |*			Implementation 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Constructeur			*|
+ \*-------------------------------------*/
+
+Histogramme::Histogramme(int n) :
+	n(n)
+    {
+    this->sizeOctet = n * sizeof(float); // octet
+    this->tabData = new int[n * (n+1) / 2];
+    for (int i = 0; i <n; i++)
+	{
+	this->tabData
+	}
+    this->tabData
+
+    // MM
+	{
+	// MM (malloc Device)
+	    {
+	    HANDLE_ERROR(cudaMalloc(&ptrDevV1, sizeOctet));
+	    }
+
+	// MM (memset Device)
+	    {
+	    HANDLE_ERROR(cudaMemset(ptrDevW, 0, sizeOctet));
+	    }
+
+	// MM (copy Host->Device)
+	    {
+	    HANDLE_ERROR(cudaMemcpy(ptrDevV1, ptrV1, sizeOctet, cudaMemcpyHostToDevice));
+	    // TODO ptrV2
+	    HANDLE_ERROR(cudaMemcpy(ptrDevV2, ptrV2, sizeOctet, cudaMemcpyHostToDevice));
+	    }
+
+	Device::lastCudaError("Histogramme MM (end allocation)"); // temp debug
+	}
+
+    // Grid
+	{
+	this->dg = dim3(16, 2, 1); // disons, a optimiser selon le gpu
+	this->db = dim3(32, 4, 1); // disons, a optimiser selon le gpu
+
+	Device::gridHeuristic(dg, db);
+	}
+    }
+
+Histogramme::~Histogramme(void)
+    {
+    //MM (device free)
+	{
+	HANDLE_ERROR(cudaFree(ptrDevV1));
+	// TODO ptrV2
+	HANDLE_ERROR(cudaFree(ptrDevV2));
+	// TODO ptrW
+	HANDLE_ERROR(cudaFree(ptrDevW));
+
+	Device::lastCudaError("Histogramme MM (end deallocation)"); // temp debug
+	}
+    }
+
+/*--------------------------------------*\
+ |*		Methode			*|
+ \*-------------------------------------*/
+
+void Histogramme::run()
+    {
+    Device::lastCudaError("histogramme (before)"); // temp debug
+    histogramme<<<dg,db>>>(n); // assynchrone
+    Device::lastCudaError("histogramme (after)"); // temp debug
+
+    Device::synchronize(); // Temp, only for printf in  GPU
+
+    // MM (Device -> Host)
+	{
+	HANDLE_ERROR(cudaMemcpy(ptrW, ptrDevW, sizeOctet, cudaMemcpyDeviceToHost)); // barriere synchronisation implicite
+	}
+    }
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+/*----------------------------------------------------------------------*\
+ |*			End	 					*|
+ \*---------------------------------------------------------------------*/

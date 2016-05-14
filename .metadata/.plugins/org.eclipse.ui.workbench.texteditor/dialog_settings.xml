@@ -9,20 +9,20 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Demo" key="selection"/>
+		<item value="ptrV1" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="demo"/>
-			<item value="start"/>
-			<item value="workPixel"/>
-			<item value="work"/>
-			<item value="damier"/>
-			<item value="MandelbrotProvider"/>
-			<item value="Damier"/>
-			<item value="TARGET_OBJ_PATH"/>
+			<item value="ptrV1"/>
+			<item value="ptrDevV1"/>
+			<item value="getDev"/>
+			<item value="vect"/>
+			<item value="frac"/>
+			<item value="newt"/>
+			<item value="fractal"/>
+			<item value="ractal"/>
 		</list>
 		<list key="replacehistory">
 			<item value="WorkGPUStream"/>
@@ -36,7 +36,7 @@
 		<item value="324" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="435" key="DIALOG_HEIGHT"/>
-		<item value="202" key="DIALOG_Y_ORIGIN"/>
-		<item value="1042" key="DIALOG_X_ORIGIN"/>
+		<item value="376" key="DIALOG_Y_ORIGIN"/>
+		<item value="893" key="DIALOG_X_ORIGIN"/>
 	</section>
 </section>

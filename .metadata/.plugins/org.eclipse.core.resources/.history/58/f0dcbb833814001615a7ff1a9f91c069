@@ -1,0 +1,89 @@
+#pragma once
+
+#include <iostream>
+#include <math.h>
+#include "cudaTools.h"
+#include "Indice2D.h"
+
+using std::cout;
+using std::endl;
+
+/*----------------------------------------------------------------------*\
+ |*			Declaration 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+class ReduceTools
+    {
+	/*--------------------------------------*\
+	|*		Constructeur		*|
+	 \*-------------------------------------*/
+    public:
+
+	__device__ ReduceTools(double nbSlice)
+	    {
+	    //this.nbSlice = nbSlice;
+	    }
+
+	// constructeur copie: pas besoin car pas attribut ptr
+
+	__device__
+   	 virtual ~ReduceTools(void)
+	    {
+	    // rien
+	    }
+
+	/*--------------------------------------*\
+   	|*		Methode			*|
+	 \*-------------------------------------*/
+
+    public:
+
+	__device__
+	void reductionIntraBloc(float* tabSM)
+	    {
+	    int i = nbSlice / 2;
+	    while (i >= 1)
+		{
+		ecrasement(tabSM, i);
+		i = i / 2;
+		__syncthreads();
+		}
+	    }
+
+	__device__
+	void reductionIntrerBloc(float* tabSM, float* ptrDevPi)
+	    {
+	    if(Indice2D::tidLocal() == 0)
+		{
+		atomicAdd(ptrDevPi, tabSM[0];)
+		}
+	    }
+
+    private:
+
+	__device__
+	void ecrasement(float* tabSM, int moitie)
+	    {
+	    int s = 0;
+	    while(s <= moitie)
+		{
+		tabSM[s] = tabSM[s] + tabSM[s + moitie];
+		s++;
+		}
+	    }
+
+	/*--------------------------------------*\
+	|*		Attribut		*|
+	 \*-------------------------------------*/
+
+	private:
+
+	// Tools
+	    double nbSlice;
+
+    }
+

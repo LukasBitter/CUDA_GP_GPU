@@ -1,22 +1,23 @@
-18:03:47 **** Clean-only build of configuration GCC_parallel for project Student_OMP_Image ****
-makeGCC.sh clean 
+22:21:16 **** Clean-only build of configuration IntelLinux_parallel for project Student_OMP_Image ****
+makeIntelLinux.sh clean 
 
 --------------------------------------------------------
-[Runtime] : gcc x86
+[Runtime] : intel x86
 --------------------------------------------------------
 
 [Runtime] : Cuda  : /usr/local/cuda/lib64
 [Runtime] : Cula  : /usr/local/cula/lib64
 [Runtime] : MKL   : /opt/intel/mkl/lib/intel64
+[Runtime] : Intel : /opt/intel
 
 [Runtime] : GL/GLEW/GLU
 [Runtime] : FreeGlut
 [Runtime] : Java (JNI)
 [Runtime] : X11
 
-[Runtime] : BOOST   : /opt/api/ext/boost/[user-version]/lib/gcc
+[Runtime] : BOOST   : /opt/api/ext/boost/[user-version]/lib/intel
 [Runtime] : OpenCV  : /opt/api/ext/opencv/[user-version]/lib
-[Runtime] : CppTest : /opt/api/ext/cpptest/[user-version]/LIB-STATIC/gcc
+[Runtime] : CppTest : /opt/api/ext/cpptest/[user-version]/LIB-STATIC/intel
 [Runtime] : gphoto2  : /opt/api/ext/gphoto2/[user-version]/lib
 
 [Runtime] : bilat_tools
@@ -28,31 +29,28 @@ makeGCC.sh clean
 [Runtime] : bilat_surface
 
 --------------------------------------------------------
-[Runtime] : gcc x86 : Ready!
+[Runtime] : intel x86 : Ready!
 --------------------------------------------------------
 
 
-g++ (Ubuntu 4.8.4-2ubuntu1~14.04.1) 4.8.4
-Copyright (C) 2013 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+[INTEL] : clean
 
-
-[Make] : GCC : clean
+icpc (ICC) 15.0.3 20150407
+Copyright (C) 1985-2015 Intel Corporation.  All rights reserved.
 
 
 ==================================================================================
-[CBI] -> Target            : Student_OMP_Image_gcc_x86_64
+[CBI] -> Target            : Student_OMP_Image_intel_x86_64
 [CBI] -> Task			   : DELETE
 [CBI] ->
 [CBI] -> Delete .obj       : /tmp/ramdrive/arc13/Targets/Student_OMP_Image/obj
 [CBI] -> Delete .bin       : /tmp/ramdrive/arc13/Targets/Student_OMP_Image/bin
 [CBI] -> Delete doc        : /tmp/ramdrive/arc13/Targets/Student_OMP_Image/doc
 [CBI] ->
-[CBI] -> Delete deploy     : ../RELEASE/bin/Student_OMP_Image_gcc_x86_64.run
-[CBI] -> Delete deploy doc : ../RELEASE/doc/Student_OMP_Image_gcc_x86_64.doc.tar.gz
+[CBI] -> Delete deploy     : ../RELEASE/bin/Student_OMP_Image_intel_x86_64.run
+[CBI] -> Delete deploy doc : ../RELEASE/doc/Student_OMP_Image_intel_x86_64.doc.tar.gz
 ==================================================================================
 
 
-18:03:47 Build Finished (took 215ms)
+22:21:17 Build Finished (took 261ms)
 

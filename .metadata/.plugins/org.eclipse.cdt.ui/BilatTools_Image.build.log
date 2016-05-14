@@ -1,4 +1,4 @@
-18:03:46 **** Clean-only build of configuration MinGW_parallel for project BilatTools_Image ****
+22:21:16 **** Clean-only build of configuration MinGW_parallel for project BilatTools_Image ****
 Info: Configuration "MinGW_parallel" uses tool-chain "MinGW GCC" that is unsupported on this system, attempting to build anyway.
 makeMinGW clean 
 Cannot run program "makeMinGW": Unknown reason
@@ -6,5 +6,5 @@ Cannot run program "makeMinGW": Unknown reason
 Error: Program "makeMinGW" not found in PATH
 PATH=[/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/etc/cbi/dev/make]
 
-18:03:46 Build Finished (took 1ms)
+22:21:16 Build Finished (took 2ms)
 

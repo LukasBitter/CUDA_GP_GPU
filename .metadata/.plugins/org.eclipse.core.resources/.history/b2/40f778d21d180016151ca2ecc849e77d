@@ -1,0 +1,137 @@
+#include <iostream>
+
+#include "Device.h"
+#include "MonteCarlo.h"
+
+using std::cout;
+using std::endl;
+
+/*----------------------------------------------------------------------*\
+ |*			Declaration 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Imported	 	*|
+ \*-------------------------------------*/
+
+extern __global__ void monteCarlo(float M, int nbFlechettes);
+extern __global__ void setup_kernel_rand(curandState* tabDevGenerator,Device::getDeviceId() )
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+/*----------------------------------------------------------------------*\
+ |*			Implementation 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Constructeur			*|
+ \*-------------------------------------*/
+
+MonteCarlo::MonteCarlo(float M, int nbFlechettes) :
+	M(M), nbFlechettes(nbFlechettes)
+    {
+
+    // Grid
+	{
+	this->dg = dim3(16, 2, 1); // disons, a optimiser selon le gpu
+	this->db = dim3(32, 4, 1); // puissance de 2
+
+	Device::gridHeuristic(dg, db);
+	}
+
+    // nb de blocks * nb de threads
+    this->sizeOctetTabGenerator = dg.x * dg.y * db.z * db.x * db.y * db.z * sizeof(curandState);
+    this->sizeOctetN0 = sizeof(int); // octet
+    this->sizeSM = db.x * db.y * db.z * sizeof(int);
+
+    this->NB_DEVICE = Device::getDeviceCount();
+    this->tabMontecarlo = new int[]
+
+    for (int i = 0; i < this->NB_DEVICE; i ++)
+
+    // MM
+	{
+	// MM (malloc Device)
+	    {
+	    // TODO: handle cudamemset
+	    HANDLE_ERROR(cudaMalloc(&ptrDevTabMontecarlo[i], sizeOctetN0));
+	    HANDLE_ERROR(cudaMalloc(&ptrTabDevGeneratorGM[i], sizeOctetTabGenerator));
+	    }
+
+	// MM (memset Device)
+	    {
+	    // TODO: handle cudamalloc
+	    HANDLE_ERROR(cudaMemset(ptrDevTabMontecarlo[i], 0, sizeOctetN0));
+	    HANDLE_ERROR(cudaMemset(ptrTabDevGeneratorGM[i], 0, sizeOctetN0));
+	    }
+
+ // MM (copy Host->Device)
+{
+// rien
+}
+
+Device::lastCudaError("MonteCarlo MM (end allocation)"); // temp debug
+}
+setup_kernel_rand(tabDevGenerator,Device::getDeviceId());
+
+}
+
+MonteCarlo::~MonteCarlo(void)
+{
+ //MM (device free)
+{
+HANDLE_ERROR(cudaFree(ptrDevN0));
+HANDLE_ERROR(cudaFree(ptrTabDevGeneratorGM));
+
+Device::lastCudaError("MonteCarlo MM (end deallocation)"); // temp debug
+}
+}
+
+/*--------------------------------------*\
+ |*		Methode			*|
+ \*-------------------------------------*/
+
+public float getPi()
+{
+return this->pi;
+}
+
+void MonteCarlo::run()
+{
+    int ntotalUnderCurve = 0;
+    for (int i = 0; i < NB_DEVICE; i++)
+	{
+	setDevice(i);
+	    Device::lastCudaError("monteCarlo (before)"); // temp debug
+	    //TODO: setupKernel
+		monteCarlo<<<dg,db, sizeSM>>>(ptrTabDevGeneratorGM[i], TabDevMontecarlo[i], nbFlechettes); // assynchrone
+		Device::lastCudaError("monteCarlo (after)"); // temp debug
+
+		Device::synchronize(); // Temp, only for printf in  GPU
+
+		// MM (Device -> Host)
+		{
+		    HANDLE_ERROR(cudaMemcpy(&n0, ptrDevN0, sizeOctetN0, cudaMemcpyDeviceToHost)); // barriere synchronisation implicite
+		    //HANDLE_ERROR(cudaMemcpy(&n0, ptrDevN0, sizeOctetN0, cudaMemcpyDeviceToHost)); // barriere synchronisation implicite
+		}
+		//pi = (N0 / nbFlechettes) * M; // TODO à verifier
+		ntotalUnderCurve += tabMontecarlo[i];
+
+	}
+    return (N0 / nbFlechettes) * M;
+
+    }
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+/*----------------------------------------------------------------------*\
+ |*			End	 					*|
+ \*---------------------------------------------------------------------*/

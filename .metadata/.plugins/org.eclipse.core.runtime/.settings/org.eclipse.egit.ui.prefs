@@ -1,4 +1,4 @@
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>re commit to push all files</message>\n<message>Finish inheritance of fractal for mandelbrot and Julia</message>\n<message>inheritance implementation of Julia fratal continuing</message>\n<message>begin inheritance for Julia</message>\n<message>modify mandelbrot</message>\n<message>add mandelbrotDevice</message>\n<message>Madelbrot OMP&\#x0A;Madelbrot CUDA</message>\n<message>initial workspace &\#x0A;</message>\n</messages>
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>newton</message>\n<message>re commit to push all files</message>\n<message>Finish inheritance of fractal for mandelbrot and Julia</message>\n<message>inheritance implementation of Julia fratal continuing</message>\n<message>begin inheritance for Julia</message>\n<message>modify mandelbrot</message>\n<message>add mandelbrotDevice</message>\n<message>Madelbrot OMP&\#x0A;Madelbrot CUDA</message>\n<message>initial workspace &\#x0A;</message>\n</messages>
 eclipse.preferences.version=1
 show_git_prefix_warning=false
 show_home_drive_warning=false

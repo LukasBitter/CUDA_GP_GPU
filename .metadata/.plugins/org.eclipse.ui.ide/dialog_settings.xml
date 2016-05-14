@@ -4,7 +4,7 @@
 		<item value="569" key="DIALOG_WIDTH"/>
 		<item value="true" key="BUILD_ALL"/>
 		<item value="false" key="TOGGLE_SELECTED"/>
-		<item value="663" key="DIALOG_HEIGHT"/>
+		<item value="656" key="DIALOG_HEIGHT"/>
 		<item value="false" key="BUILD_NOW"/>
 		<item value="24" key="DIALOG_Y_ORIGIN"/>
 		<item value="449" key="DIALOG_X_ORIGIN"/>
@@ -14,6 +14,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/arc13/CUDA/toStudent/code/WCuda/Student_Demo_Image"/>
 			<item value="/home/arc13/CUDA/toStudent/code/WCuda/Student_demo_Image (copy)"/>
 			<item value="/home/arc13/CUDA/toStudent/code/WCuda/Student_demo_Image"/>
 			<item value="G:\CBI\HEARC\RAD\Running\CudaTuto\02_Scientifique\01_Code\WCudaMSE\Tuto_gphoto2_Linux"/>
