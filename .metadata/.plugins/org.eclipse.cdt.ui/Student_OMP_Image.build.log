@@ -1,4 +1,4 @@
-23:31:21 **** Clean-only build of configuration IntelLinux_parallel for project Student_OMP_Image ****
+00:10:44 **** Clean-only build of configuration IntelLinux_parallel for project Student_OMP_Image ****
 makeIntelLinux.sh clean 
 
 --------------------------------------------------------
@@ -52,5 +52,5 @@ Copyright (C) 1985-2015 Intel Corporation.  All rights reserved.
 ==================================================================================
 
 
-23:31:21 Build Finished (took 263ms)
+00:10:45 Build Finished (took 261ms)
 

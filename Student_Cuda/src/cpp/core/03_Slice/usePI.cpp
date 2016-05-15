@@ -4,7 +4,7 @@
 //#include "MathTools.h"
 
 //#include "../03_Slice/00_tools/00_pi_tools.h"
-#include "PI.h"
+#include "Slice.h"
 
 using std::cout;
 using std::endl;
@@ -44,8 +44,8 @@ bool usePI(void)
     int n = INT_MAX / 1000;
     bool isOk = true;
 
-    PI pi(n);
-    pi.run();
+    Slice piObj(n);
+    piObj.run();
 
     //isOk &= MathTools::isEquals(saucisson.getPi(), M_PI, 1e-3);;
     //isOk &= isPiCUDAforReduction_Ok(n);

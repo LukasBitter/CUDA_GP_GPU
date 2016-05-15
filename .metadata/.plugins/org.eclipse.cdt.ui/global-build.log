@@ -1,4 +1,4 @@
-23:31:23 **** Build of configuration CudaGCC_parallel for project Student_Cuda ****
+00:10:47 **** Build of configuration CudaGCC_parallel for project Student_Cuda ****
 makeCudaGCC.sh jall 
 
 --------------------------------------------------------
@@ -180,105 +180,33 @@ Cuda compilation tools, release 7.0, V7.0.27
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/06_Histogramme/01_objet/host/Histogramme.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Hello/01_helloCuda.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Hello/02_hello_add.cu
-[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/device/pi_device.cu
-[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/host/PI.cu
-/usr/local/cuda/include/curand.h(70): error: linkage specification is not allowed
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/device/SliceKernel.cu
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/host/Slice.cu
+src/cpp/core/03_Slice/01_objet/device/SliceKernel.cu(23): error: illegal combination of memory qualifiers
 
-/usr/local/cuda/include/curand.h(70): error: expected an identifier
-
-/usr/local/cuda/include/curand.h(70): error: explicit type is missing ("int" assumed)
-
-/usr/local/cuda/include/curand.h(70): warning: field initializers are a C++11 feature
-
-/usr/local/cuda/include/cuComplex.h(289): error: identifier "cuComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(296): error: identifier "cuDoubleComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(297): error: identifier "cuFloatComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(302): error: identifier "cuFloatComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(303): error: identifier "cuDoubleComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(309): error: identifier "cuComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(309): error: identifier "cuComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(309): error: identifier "cuComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(309): error: identifier "cuComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(323): error: identifier "cuDoubleComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(323): error: identifier "cuDoubleComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(323): error: identifier "cuDoubleComplex" is undefined
-
-/usr/local/cuda/include/cuComplex.h(323): error: identifier "cuDoubleComplex" is undefined
-
-/usr/local/cuda/include/cublas_api.h(76): error: linkage specification is not allowed
-
-/usr/local/cuda/include/cublas_api.h(76): error: expected an identifier
-
-/usr/local/cuda/include/cublas_api.h(76): error: explicit type is missing ("int" assumed)
-
-../BilatTools_Cuda/src/core/cudatools/header/host/cudaTools.h(30): error: identifier "curandStatus_t" is undefined
-
-../BilatTools_Cuda/src/core/cudatools/header/host/cudaTools.h(31): error: identifier "cublasStatus_t" is undefined
-
-../BilatTools_Cuda/src/core/cudatools/header/host/cudaTools.h(31): error: invalid redeclaration of member function "ReductionTools<T>::cudaHandleError(<error-type>, const char *, int)"
-(30): here
-
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(17): error: illegal combination of memory qualifiers
-
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(37): error: invalid redeclaration of member function "ReductionTools<T>::piDevice(float *, int)"
-(17): here
-
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(56): error: invalid redeclaration of member function "ReductionTools<T>::reductionIntraThread(float *, int)"
+src/cpp/core/03_Slice/01_objet/device/SliceKernel.cu(45): error: invalid redeclaration of member function "ReductionTools<T>::piDevice(int, float *)"
 (23): here
 
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(80): error: invalid redeclaration of member function "ReductionTools<T>::aireRectangle(int)"
-(24): here
+src/cpp/core/03_Slice/01_objet/device/SliceKernel.cu(61): error: invalid redeclaration of member function "ReductionTools<T>::reduceIntraThread(float *, int)"
+(29): here
+
+src/cpp/core/03_Slice/01_objet/device/SliceKernel.cu(80): error: invalid redeclaration of member function "ReductionTools<T>::calculateAire(int, int)"
+(30): here
+
+src/cpp/core/03_Slice/01_objet/device/SliceKernel.cu(86): error: invalid redeclaration of member function "ReductionTools<T>::f(float)"
+(31): here
 
 At end of source: error: expected a "}"
 
-/usr/local/cuda/include/curand.h(82): error: expected an expression
-
-/usr/local/cuda/include/curand.h(1020): warning: parsing restarts here after previous syntax error
-
-/usr/local/cuda/include/cuComplex.h(61): error: expected a ";"
-
-/usr/local/cuda/include/cublas_api.h(80): error: expected an expression
-
-/usr/local/cuda/include/cublas_api.h(2537): warning: parsing restarts here after previous syntax error
-
-../BilatTools_Cuda/src/core/cudatools/header/host/cudaTools.h(16): error: expected a ";"
-
 At end of source: error: expected a ";"
 
-src/cpp/core/03_Slice/01_objet/host/PI.cu(8): error: a class-qualified name is required
+src/cpp/core/03_Slice/01_objet/host/Slice.cu(21): error: "PI" is not a nonstatic data member or base class of class "Slice"
 
-src/cpp/core/03_Slice/01_objet/host/PI.cu(9): error: a class-qualified name is required
+src/cpp/core/03_Slice/01_objet/host/Slice.cu(65): error: identifier "calculatePI" is undefined
 
-src/cpp/core/03_Slice/01_objet/host/PI.cu(19): error: invalid storage class for a class member
-
-src/cpp/core/03_Slice/01_objet/host/PI.cu(19): error: illegal combination of memory qualifiers
-
-src/cpp/core/03_Slice/01_objet/host/PI.cu(38): error: qualified name is not allowed
-
-src/cpp/core/03_Slice/01_objet/host/PI.cu(75): error: qualified name is not allowed
-
-src/cpp/core/03_Slice/01_objet/host/PI.cu(75): error: this declaration has no storage class or type specifier
-
-src/cpp/core/03_Slice/01_objet/host/PI.cu(89): error: qualified name is not allowed
-
-src/cpp/core/03_Slice/01_objet/host/PI.cu(104): error: qualified name is not allowed
-
-At end of source: error: expected a ";"
-
-32 errors detected in the compilation of "/tmp/tmpxft_00001c3b_00000000-7_pi_device.cpp1.ii".
-make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/pi_device.o] Error 2
+7 errors detected in the compilation of "/tmp/tmpxft_00003164_00000000-7_SliceKernel.cpp1.ii".
+make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/SliceKernel.o] Error 2
 make[1]: *** Waiting for unfinished jobs....
-10 errors detected in the compilation of "/tmp/tmpxft_00001c37_00000000-7_PI.cpp1.ii".
-make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/PI.o] Error 2
+2 errors detected in the compilation of "/tmp/tmpxft_00003174_00000000-7_Slice.cpp1.ii".
+make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/Slice.o] Error 2
 make: *** [jall] Error 2
