@@ -1,4 +1,4 @@
-20:48:47 **** Incremental Build of configuration CudaGCC_parallel for project Student_Cuda ****
+21:17:37 **** Incremental Build of configuration CudaGCC_parallel for project Student_Cuda ****
 makeCudaGCC.sh jall 
 
 --------------------------------------------------------
@@ -152,6 +152,7 @@ Cuda compilation tools, release 7.0, V7.0.27
 [CBI] -> Compilation parallel (12 threads)
 
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/device/pi_device.cu
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/host/PI.cu
 src/cpp/core/03_Slice/01_objet/device/pi_device.cu(17): warning: attribute "global" does not apply here
 
 src/cpp/core/03_Slice/01_objet/device/pi_device.cu(17): error: expected a ";"
@@ -168,9 +169,10 @@ src/cpp/core/03_Slice/01_objet/device/pi_device.cu(45): error: expected a type s
 
 src/cpp/core/03_Slice/01_objet/device/pi_device.cu(45): error: identifier "NB_THREAD_PAR_BLOCK" is undefined
 
-7 errors detected in the compilation of "/tmp/tmpxft_00000168_00000000-7_pi_device.cpp1.ii".
+7 errors detected in the compilation of "/tmp/tmpxft_00001ced_00000000-7_pi_device.cpp1.ii".
 make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/pi_device.o] Error 2
+make[1]: *** Waiting for unfinished jobs....
 make: *** [jall] Error 2
 
-20:48:49 Build Finished (took 1s.414ms)
+21:17:40 Build Finished (took 3s.420ms)
 

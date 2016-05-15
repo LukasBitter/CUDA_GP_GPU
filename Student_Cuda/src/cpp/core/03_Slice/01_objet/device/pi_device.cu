@@ -14,7 +14,7 @@
 /*--------------------------------------*\
  |*		Public			*|
  \*-------------------------------------*/
-__global__ void pi(float* ptrDevpi, int nbSlice);
+__global__ void piDevice(float* ptrDevpi, int nbSlice);
 
 /*--------------------------------------*\
  |*		Private			*|
@@ -34,15 +34,16 @@ static __device__ float aireRectangle(int s);
 /**
  * output : void required !!
  */
-__global__ void pi(float* ptrDevPi, int nbSlice)
+__global__ void piDevice(float* ptrDevPi, int nbSlice)
     {
     extern __shared__ float tabSM[];
+    ReductionTools<float,float> reductionTools = ReductionTools<float,float>(n);
+
+    initTabSM(tabSM, n);
+    __syncthreads();
     reductionIntraThread(tabSM, nbSlice); // pas necessaire, just for fun
     __syncthreads();
 
-    CONST INT NB_THREAD_PAR_BLOCK = Indice2D::nbThreadBlock();
-
-    Reducetools reduceTools = new ReduceTools(NB_THREAD_PAR_BLOCK);
     reduceTools.reductionIntraBloc(tabSM);
     reduceTools.reductionIntrerBloc(tabSM, ptrDevPi);
     __syncthreads();

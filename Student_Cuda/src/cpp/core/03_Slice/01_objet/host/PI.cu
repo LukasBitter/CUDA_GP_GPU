@@ -15,7 +15,7 @@ using std::endl;
  |*		Imported	 	*|
  \*-------------------------------------*/
 
-extern __global__ void slice(float* ptrDevPi, int nbSlice);
+extern __global__ void piDevice(float* ptrDevPi, int nbSlice);
 
 
 /*--------------------------------------*\
@@ -88,7 +88,7 @@ PI::~PI(void)
 void PI::run()
     {
     Device::lastCudaError("pi (before)"); // temp debug
-    slice<<<dg,db>>>(ptrDevPi, nbSlice); // assynchrone
+    piDevice<<<dg,db>>>(ptrDevPi, nbSlice); // assynchrone
     Device::lastCudaError("pi (after)"); // temp debug
 
     //Device::synchronize(); // Temp, only for printf in  GPU
