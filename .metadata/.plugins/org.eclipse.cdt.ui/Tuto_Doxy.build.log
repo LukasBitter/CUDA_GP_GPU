@@ -1,4 +1,4 @@
-00:10:45 **** Clean-only build of configuration GCC_parallel for project Tuto_Doxy ****
+00:26:38 **** Clean-only build of configuration GCC_parallel for project Tuto_Doxy ****
 makeGCC.sh clean 
 
 --------------------------------------------------------
@@ -45,14 +45,14 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 [CBI] -> Target            : Tuto_Doxygen_gcc_x86_64
 [CBI] -> Task			   : DELETE
 [CBI] ->
-[CBI] -> Delete .obj       : /tmp/ramdrive/arc13/Targets/Tuto_Doxygen/obj
-[CBI] -> Delete .bin       : /tmp/ramdrive/arc13/Targets/Tuto_Doxygen/bin
-[CBI] -> Delete doc        : /tmp/ramdrive/arc13/Targets/Tuto_Doxygen/doc
+[CBI] -> Delete .obj       : /tmp/ramdrive/arc17/Targets/Tuto_Doxygen/obj
+[CBI] -> Delete .bin       : /tmp/ramdrive/arc17/Targets/Tuto_Doxygen/bin
+[CBI] -> Delete doc        : /tmp/ramdrive/arc17/Targets/Tuto_Doxygen/doc
 [CBI] ->
 [CBI] -> Delete deploy     : ../RELEASE/bin/Tuto_Doxygen_gcc_x86_64.run
 [CBI] -> Delete deploy doc : ../RELEASE/doc/Tuto_Doxygen_gcc_x86_64.doc.tar.gz
 ==================================================================================
 
 
-00:10:45 Build Finished (took 61ms)
+00:26:38 Build Finished (took 112ms)
 

@@ -1,4 +1,4 @@
-00:10:45 **** Clean-only build of configuration CudaGCC_paralell for project Tuto_Image_Cuda ****
+00:26:39 **** Clean-only build of configuration CudaGCC_paralell for project Tuto_Image_Cuda ****
 makeCudaGCC.sh clean 
 
 --------------------------------------------------------
@@ -51,15 +51,15 @@ Cuda compilation tools, release 7.0, V7.0.27
 [CBI] -> Target            : Tuto_Image_Cuda_gcc_cuda_70_x86_64
 [CBI] -> Task			     : DELETE
 [CBI]
-[CBI] -> Delete .obj       : /tmp/ramdrive/arc13/Targets/Tuto_Image_Cuda/obj
-[CBI] -> Delete .bin       : /tmp/ramdrive/arc13/Targets/Tuto_Image_Cuda/bin
-[CBI] -> Delete .cubin     : /tmp/ramdrive/arc13/Targets/Tuto_Image_Cuda/cubin
-[CBI] -> Delete doc        : /tmp/ramdrive/arc13/Targets/Tuto_Image_Cuda/doc
+[CBI] -> Delete .obj       : /tmp/ramdrive/arc17/Targets/Tuto_Image_Cuda/obj
+[CBI] -> Delete .bin       : /tmp/ramdrive/arc17/Targets/Tuto_Image_Cuda/bin
+[CBI] -> Delete .cubin     : /tmp/ramdrive/arc17/Targets/Tuto_Image_Cuda/cubin
+[CBI] -> Delete doc        : /tmp/ramdrive/arc17/Targets/Tuto_Image_Cuda/doc
 [CBI]
 [CBI] -> Delete deploy     : ../RELEASE/bin/Tuto_Image_Cuda_gcc_cuda_70_x86_64.run
 [CBI] -> Delete deploy doc : ../RELEASE/doc/Tuto_Image_Cuda_gcc_cuda_70_x86_64.doc.tar.gz
 ==================================================================================
 
 
-00:10:46 Build Finished (took 363ms)
+00:26:39 Build Finished (took 362ms)
 

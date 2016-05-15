@@ -15,7 +15,7 @@ using std::endl;
 
 extern bool useHello(void);
 extern bool useAddVecteur(void);
-//extern bool usePI(void);
+extern bool useSlice(void);
 extern bool useHistogramme(void);
 
 /*--------------------------------------*\
@@ -45,6 +45,7 @@ int mainCore()
     //isOk &=useAddVecteur();
     //isOk &=usePI();
     isOk &=useHistogramme();
+    isOk &=useSlice();
 
     cout << "\nisOK = " << isOk << endl;
     cout << "\nEnd : mainCore" << endl;

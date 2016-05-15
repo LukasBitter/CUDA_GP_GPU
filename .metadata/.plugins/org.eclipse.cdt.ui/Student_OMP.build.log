@@ -1,4 +1,4 @@
-00:10:44 **** Clean-only build of configuration GCC_parallel for project Student_OMP ****
+00:26:38 **** Clean-only build of configuration GCC_parallel for project Student_OMP ****
 makeGCC.sh clean 
 
 --------------------------------------------------------
@@ -45,14 +45,14 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 [CBI] -> Target            : Student_OMP_gcc_x86_64
 [CBI] -> Task			   : DELETE
 [CBI] ->
-[CBI] -> Delete .obj       : /tmp/ramdrive/arc13/Targets/Student_OMP/obj
-[CBI] -> Delete .bin       : /tmp/ramdrive/arc13/Targets/Student_OMP/bin
-[CBI] -> Delete doc        : /tmp/ramdrive/arc13/Targets/Student_OMP/doc
+[CBI] -> Delete .obj       : /tmp/ramdrive/arc17/Targets/Student_OMP/obj
+[CBI] -> Delete .bin       : /tmp/ramdrive/arc17/Targets/Student_OMP/bin
+[CBI] -> Delete doc        : /tmp/ramdrive/arc17/Targets/Student_OMP/doc
 [CBI] ->
 [CBI] -> Delete deploy     : ../RELEASE/bin/Student_OMP_gcc_x86_64.run
 [CBI] -> Delete deploy doc : ../RELEASE/doc/Student_OMP_gcc_x86_64.doc.tar.gz
 ==================================================================================
 
 
-00:10:44 Build Finished (took 111ms)
+00:26:38 Build Finished (took 111ms)
 

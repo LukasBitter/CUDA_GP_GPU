@@ -1,4 +1,4 @@
-00:10:44 **** Clean-only build of configuration IntelLinux_parallel for project Student_OMP_Image ****
+00:26:38 **** Clean-only build of configuration IntelLinux_parallel for project Student_OMP_Image ****
 makeIntelLinux.sh clean 
 
 --------------------------------------------------------
@@ -43,14 +43,14 @@ Copyright (C) 1985-2015 Intel Corporation.  All rights reserved.
 [CBI] -> Target            : Student_OMP_Image_intel_x86_64
 [CBI] -> Task			   : DELETE
 [CBI] ->
-[CBI] -> Delete .obj       : /tmp/ramdrive/arc13/Targets/Student_OMP_Image/obj
-[CBI] -> Delete .bin       : /tmp/ramdrive/arc13/Targets/Student_OMP_Image/bin
-[CBI] -> Delete doc        : /tmp/ramdrive/arc13/Targets/Student_OMP_Image/doc
+[CBI] -> Delete .obj       : /tmp/ramdrive/arc17/Targets/Student_OMP_Image/obj
+[CBI] -> Delete .bin       : /tmp/ramdrive/arc17/Targets/Student_OMP_Image/bin
+[CBI] -> Delete doc        : /tmp/ramdrive/arc17/Targets/Student_OMP_Image/doc
 [CBI] ->
 [CBI] -> Delete deploy     : ../RELEASE/bin/Student_OMP_Image_intel_x86_64.run
 [CBI] -> Delete deploy doc : ../RELEASE/doc/Student_OMP_Image_intel_x86_64.doc.tar.gz
 ==================================================================================
 
 
-00:10:45 Build Finished (took 261ms)
+00:26:38 Build Finished (took 212ms)
 

@@ -1,0 +1,93 @@
+#include "Indice2D.h"
+#include "cudaTools.h"
+
+#include <stdio.h>
+#include <ReductionTools.h>
+
+
+
+/*----------------------------------------------------------------------*\
+ |*			Declaration 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Imported	 	*|
+ \*-------------------------------------*/
+
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+static __global__ void piDevice(int nbSlice, float* ptrDevResult);
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+static __device__ void reduceIntraThread(float* ptrDevTabSM, int nbSlice);
+static __device__ float calculateAire(int sliceNumber, int nombreSlice);
+static __device__ float f(float x);
+
+/*----------------------------------------------------------------------*\
+ |*			Implementation 					*|
+ \*---------------------------------------------------------------------*/
+
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+/**
+ * output : void required !!
+ */
+__global__ void piDevice(int nbSlice, float* ptrDevResult)
+    {
+    extern __shared__ float tabSM[]; // lu par tout les thread mais fait une fois
+
+    reduceIntraThread(tabSM, nbSlice);
+
+    __syncthreads();
+
+    ReductionTool<float>::reduce(tabSM , ptrDevResult);
+    }
+
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+__device__ void reduceIntraThread(float* ptrDevTabSM, int nbSlice)
+    {
+    const int NB_THREAD_GLOBAL=Indice2D::nbThread();
+    const int TID_GLOBAL=Indice2D::tid();
+    const int TID_BLOC=Indice2D::tidLocalBlock();
+
+    int s = TID_GLOBAL;
+    float sommeAire = 0;
+
+    while(s<nbSlice)
+	{
+	sommeAire += calculateAire(s, nbSlice);
+
+	s+= NB_THREAD_GLOBAL;
+	}
+
+    ptrDevTabSM[TID_BLOC] = sommeAire / nbSlice;
+    }
+
+__device__ float calculateAire(int sliceNumber, int nombreSlice)
+    {
+    const float x = (1.0f / (float) nombreSlice) * (float) sliceNumber;
+    return f(x);
+    }
+
+__device__ float f(float x)
+    {
+    return 4.0f/ (1.0f + x * x);
+    }
+
+/*----------------------------------------------------------------------*\
+ |*			End	 					*|
+ \*---------------------------------------------------------------------*/
+
