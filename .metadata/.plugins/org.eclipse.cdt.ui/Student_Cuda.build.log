@@ -1,5 +1,5 @@
-00:27:15 **** Incremental Build of configuration CudaGCC_parallel for project Student_Cuda ****
-makeCudaGCC.sh jall 
+00:33:54 **** Clean-only build of configuration CudaGCC_parallel for project Student_Cuda ****
+makeCudaGCC.sh clean 
 
 --------------------------------------------------------
 [Runtime] : gcc x86
@@ -44,190 +44,22 @@ Built on Mon_Feb_16_22:59:02_CST_2015
 Cuda compilation tools, release 7.0, V7.0.27
 
 
-[CUDA GCC] : jall
+[CUDA GCC] : clean
 
 
 ==================================================================================
-[CBI] -> Target Name  : Student_Cuda_gcc_cuda_70_x86_64
-[CBI] ->
-[CBI] -> Build        : /tmp/ramdrive/arc17/Targets/Student_Cuda/bin/Student_Cuda_gcc_cuda_70_x86_64.run
-[CBI] -> Deploy       : ../RELEASE/bin
-[CBI] ->
-[CBI] -> Type	      : EXE
-[CBI] -> Arch	      : x86_64
-[CBI] -> OS	 		  : Linux
-[CBI] -> User	 	  : arc17
-[CBI] ->
-[CBI] -> Task		  : Compiling-Linking !
-==================================================================================
-
-[CBI] -> SRC AUX (Recursif) :
-[CBI] ->
-[CBI] ->              : ../BilatTools_CPP/src/core
-[CBI] ->              : ../BilatTools_Cuda/src/core
-[CBI] ->              : /opt/api/ext/boost/158/lib_static/gcc
-[CBI] ->              : /opt/api/ext/cpptest/112/LIB_STATIC/gcc
-
-[CBI] -> CXXFLAGS (Partial) :
-[CBI] ->
-[CBI] ->              : -fopenmp
-[CBI] ->              : -std=c++11
-[CBI] ->              : -O3
-[CBI] ->              : -frerun-loop-opt
-[CBI] ->              : -fomit-frame-pointer
-
-[CBI] -> CXXLDFLAGS (Partial) :
-[CBI] ->
-
-[CBI] -> NVCCFLAGS (Partial) :
-[CBI] ->
-[CBI] ->              : --fmad=true
-[CBI] ->              : -arch=sm_20
-[CBI] ->              : -m64
-[CBI] ->              : -use_fast_math
-
-[CBI] -> NVCCLDFLAGS (Partial) :
-[CBI] ->
-[CBI] ->              : -arch=sm_20
-
-[CBI] -> INC_PATH (auto detect):
-[CBI] ->              : ../BilatTools_CPP/src/core/tools/header/
-[CBI] ->              : ../BilatTools_CPP/src/core/tools/header/namespace_cpu/
-[CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/header/both/
-[CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/header/device/
-[CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/header/device/curand/
-[CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/header/device/reduction/
-[CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/header/device/synchronisation/
-[CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/header/host/
-[CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/header/mixte/
-[CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/nvidia/
-[CBI] ->              : src/cpp/core/00_Tools/
-[CBI] ->              : src/cpp/core/02_Hello_add_vector/00_tools/
-[CBI] ->              : src/cpp/core/02_Hello_add_vector/01_objet/host/
-[CBI] ->              : src/cpp/core/03_Slice/moo/host/
-[CBI] ->              : src/cpp/core/06_Histogramme/01_objet/host/
-[CBI] ->              : src/cpp/test/junit/01_Test_Hello/
-[CBI] ->              : src/cpp/test/junit/02_Test_Vector/
-[CBI] ->              : src/cpp/tools/
-
-
-[CBI] -> LIB_PATH (auto detect):
-
-[CBI] -> LIB_PATH (auto detect):
-
-[CBI] -> API_INC :
-[CBI] ->              : /opt/api/ext/boost/158/include
-[CBI] ->              : /opt/api/ext/cpptest/112/INC
-[CBI] ->              : /opt/api/ext/cpptest/112/INC/extension
-[CBI] ->              : /usr/local/cuda/include
-[CBI] ->              : /usr/local/cuda/include/CL
-[CBI] ->              : /usr/local/cuda/include/crt
-[CBI] ->              : /usr/local/cuda/include/thrust
-
-[CBI] -> API_LIB :
-[CBI] ->              : /usr/local/cuda/lib64
-
-[CBI] -> API_BIN :
-[CBI] ->              : /usr/local/cuda/lib64
-
-[CBI] -> API_LIBRARIES :
-[CBI] ->              : cublas
-[CBI] ->              : cudart
-[CBI] ->              : cufft
-[CBI] ->              : cufftw
-[CBI] ->              : cuinj64
-[CBI] ->              : curand
-[CBI] ->              : cusolver
-[CBI] ->              : cusparse
-[CBI] ->              : nppc
-[CBI] ->              : nppi
-[CBI] ->              : npps
-[CBI] ->              : nvToolsExt
-[CBI] ->              : nvblas
-[CBI] ->              : nvrtc
-[CBI] ->              : nvrtc-builtins
-[CBI] ->              : pthread
-
-
-[CBI] -> Compilation parallel (12 threads)
-
-[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/mainCore.cpp
-
-[CBI] -> Linking to   : /tmp/ramdrive/arc17/Targets/Student_Cuda/bin/Student_Cuda_gcc_cuda_70_x86_64.run
-
-[CBI] -> Library Link :
-[CBI] ->
-[CBI] ->              : -lCpp_Test_gcc_x86_64
-[CBI] ->              : -lboost_atomic-gcc48
-[CBI] ->              : -lboost_chrono-gcc48
-[CBI] ->              : -lboost_container-gcc48
-[CBI] ->              : -lboost_context-gcc48
-[CBI] ->              : -lboost_coroutine-gcc48
-[CBI] ->              : -lboost_date_time-gcc48
-[CBI] ->              : -lboost_exception-gcc48
-[CBI] ->              : -lboost_filesystem-gcc48
-[CBI] ->              : -lboost_graph-gcc48
-[CBI] ->              : -lboost_locale-gcc48
-[CBI] ->              : -lboost_log-gcc48
-[CBI] ->              : -lboost_log_setup-gcc48
-[CBI] ->              : -lboost_math_c99-gcc48
-[CBI] ->              : -lboost_math_c99f-gcc48
-[CBI] ->              : -lboost_math_c99l-gcc48
-[CBI] ->              : -lboost_math_tr1-gcc48
-[CBI] ->              : -lboost_math_tr1f-gcc48
-[CBI] ->              : -lboost_math_tr1l-gcc48
-[CBI] ->              : -lboost_prg_exec_monitor-gcc48
-[CBI] ->              : -lboost_program_options-gcc48
-[CBI] ->              : -lboost_random-gcc48
-[CBI] ->              : -lboost_regex-gcc48
-[CBI] ->              : -lboost_serialization-gcc48
-[CBI] ->              : -lboost_signals-gcc48
-[CBI] ->              : -lboost_system-gcc48
-[CBI] ->              : -lboost_test_exec_monitor-gcc48
-[CBI] ->              : -lboost_thread-gcc48
-[CBI] ->              : -lboost_timer-gcc48
-[CBI] ->              : -lboost_unit_test_framework-gcc48
-[CBI] ->              : -lboost_wave-gcc48
-[CBI] ->              : -lboost_wserialization-gcc48
-[CBI] ->              : -lcublas
-[CBI] ->              : -lcudart
-[CBI] ->              : -lcufft
-[CBI] ->              : -lcufftw
-[CBI] ->              : -lcuinj64
-[CBI] ->              : -lcurand
-[CBI] ->              : -lcusolver
-[CBI] ->              : -lcusparse
-[CBI] ->              : -lgomp
-[CBI] ->              : -lnppc
-[CBI] ->              : -lnppi
-[CBI] ->              : -lnpps
-[CBI] ->              : -lnvToolsExt
-[CBI] ->              : -lnvblas
-[CBI] ->              : -lnvrtc
-[CBI] ->              : -lnvrtc-builtins
-[CBI] ->              : -lpthread
-
-
-==================================================================================
-[CBI] -> Target Name  : Student_Cuda_gcc_cuda_70_x86_64
-[CBI] -> Location     : /tmp/ramdrive/arc17/Targets/Student_Cuda/bin/Student_Cuda_gcc_cuda_70_x86_64.run
-[CBI] -> Deploy 	  : ../RELEASE/bin
-[CBI] ->
-[CBI] -> Type	 	  : EXE
-[CBI] -> Arch	 	  : x86_64
-[CBI] -> OS	 	      : Linux
-[CBI] -> User	 	  : arc17
-[CBI] ->
-[CBI] -> Compilateur  : g++) && nvcc
-[CBI] -> Task		  : End Compiling-Linking !
-[CBI] -> Time		  : 0 (s)
+[CBI] -> Target            : Student_Cuda_gcc_cuda_70_x86_64
+[CBI] -> Task			     : DELETE
+[CBI]
+[CBI] -> Delete .obj       : /tmp/ramdrive/arc17/Targets/Student_Cuda/obj
+[CBI] -> Delete .bin       : /tmp/ramdrive/arc17/Targets/Student_Cuda/bin
+[CBI] -> Delete .cubin     : /tmp/ramdrive/arc17/Targets/Student_Cuda/cubin
+[CBI] -> Delete doc        : /tmp/ramdrive/arc17/Targets/Student_Cuda/doc
+[CBI]
+[CBI] -> Delete deploy     : ../RELEASE/bin/Student_Cuda_gcc_cuda_70_x86_64.run
+[CBI] -> Delete deploy doc : ../RELEASE/doc/Student_Cuda_gcc_cuda_70_x86_64.doc.tar.gz
 ==================================================================================
 
 
-[CBI] -> Deploying      : ../RELEASE/bin/Student_Cuda_gcc_cuda_70_x86_64.run
-
-[CBI] -> Student_Cuda_gcc_cuda_70_x86_64 : End ALL!
-
-
-00:27:15 Build Finished (took 731ms)
+00:33:54 Build Finished (took 160ms)
 
