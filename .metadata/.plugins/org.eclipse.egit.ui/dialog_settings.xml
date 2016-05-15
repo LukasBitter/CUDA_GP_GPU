@@ -12,7 +12,7 @@
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="705" key="DIALOG_HEIGHT"/>
 		<item value="287" key="DIALOG_X_ORIGIN"/>
-		<item value="54" key="DIALOG_Y_ORIGIN"/>
+		<item value="15" key="DIALOG_Y_ORIGIN"/>
 		<list key="sashWeights">
 			<item value="600"/>
 			<item value="400"/>
@@ -21,9 +21,9 @@
 	<section name="org.eclipse.egit.ui.COMMIT_DIALOG_SECTION">
 		<item value="873" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="904" key="DIALOG_HEIGHT"/>
-		<item value="631" key="DIALOG_X_ORIGIN"/>
-		<item value="51" key="DIALOG_Y_ORIGIN"/>
+		<item value="720" key="DIALOG_HEIGHT"/>
+		<item value="493" key="DIALOG_X_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="GitCommitMessageComponent">
 	</section>

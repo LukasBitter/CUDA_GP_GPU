@@ -18,7 +18,7 @@ class Histogramme
 
     public:
 
-	Histogramme();
+	Histogramme(uchar* tabData, int n);
 
 	virtual ~Histogramme(void);
 
@@ -28,7 +28,7 @@ class Histogramme
 
     public:
 
-	void run();
+	int* run();
 
 	/*--------------------------------------*\
 	|*		Attributs		*|
@@ -38,6 +38,7 @@ class Histogramme
 
 	// Inputs
 	int nTabData;
+	int nDataRange;
 
 	// Outputs
 	int* ptrHisto;

@@ -1,0 +1,145 @@
+#include "Histogramme.h"
+#include <assert.h>
+
+#include <iostream>
+#include <stdlib.h>
+
+#include "Device.h"
+
+using std::cout;
+using std::endl;
+
+/*----------------------------------------------------------------------*\
+ |*			Declaration 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Imported	 	*|
+ \*-------------------------------------*/
+
+extern __global__ void histogramme(uchar* ptrDevTabData, int nTabData, int* ptrDevHisto, int nDataRange);
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+/*----------------------------------------------------------------------*\
+ |*			Implementation 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Constructeur			*|
+ \*-------------------------------------*/
+
+Histogramme::Histogramme(int n)
+    {
+    cout << "Début constructeur" << endl;
+    this->nDataRange = n;
+    this->nTabData = nDataRange * (nDataRange+1) / 2;
+    this->sizeOctetData = nTabData * sizeof(uchar); // octet
+    this->sizeOctetHisto = nDataRange * sizeof(int); // octet
+    this->tabData = new uchar[nTabData];
+    this->ptrHisto = new int[n];
+
+    int s =0;
+    for (int i = 0; i < nDataRange; i++)
+	{
+	for(int j = 0; j<= i; j++)
+	    {
+	    this->tabData[s] = i;
+	    s++;
+	    }
+	}
+
+    /*
+    cout << "Tableau initial:" << endl;
+    for(int i = 0; i< 10; i++)
+	{
+	cout << this->tabData[i] << endl;
+	}
+    cout << endl;*/
+
+    assert(s == nTabData);
+
+    // MM
+	{
+	// MM (malloc Device)
+	    {
+	    HANDLE_ERROR(cudaMalloc(&ptrDevTabData, sizeOctetData));
+	    HANDLE_ERROR(cudaMalloc(&ptrDevHisto, sizeOctetHisto));
+	    }
+
+	// MM (memset Device)
+	    {
+	    HANDLE_ERROR(cudaMemset(ptrDevTabData, 0, sizeOctetData));
+	    HANDLE_ERROR(cudaMemset(ptrDevHisto, 0, sizeOctetHisto));
+	    }
+
+	// MM (copy Host->Device)
+	    {
+	    HANDLE_ERROR(cudaMemcpy(ptrDevTabData, tabData, sizeOctetData, cudaMemcpyHostToDevice));
+	    }
+
+	Device::lastCudaError("Histogramme MM (end allocation)"); // temp debug
+	}
+
+    // Grid
+	{
+	this->dg = dim3(16, 2, 1); // disons, a optimiser selon le gpu
+	this->db = dim3(32, 4, 1); // disons, a optimiser selon le gpu
+
+	Device::gridHeuristic(dg, db);
+	}
+    }
+
+Histogramme::~Histogramme(void)
+    {
+    //MM (device free)
+	{
+	HANDLE_ERROR(cudaFree(ptrDevTabData));
+	HANDLE_ERROR(cudaFree(ptrDevHisto));
+
+	Device::lastCudaError("Histogramme MM (end deallocation)"); // temp debug
+	}
+
+	    delete[] tabData;
+	    delete[] ptrHisto;
+    }
+
+/*--------------------------------------*\
+ |*		Methode			*|
+ \*-------------------------------------*/
+
+void Histogramme::run()
+    {
+    Device::lastCudaError("histogramme (before)"); // temp debug
+    histogramme<<<dg,db, sizeOctetHisto>>>(ptrDevTabData, nTabData, ptrDevHisto, nDataRange); // assynchrone
+    Device::lastCudaError("histogramme (after)"); // temp debug
+
+    Device::synchronize(); // Temp, only for printf in  GPU
+
+    // MM (Device -> Host)
+	{
+	HANDLE_ERROR(cudaMemcpy(ptrHisto, ptrDevHisto, sizeOctetHisto, cudaMemcpyDeviceToHost)); // barriere synchronisation implicite
+	}
+
+	cout << "print host histo (before)" << endl;
+	for(int i = 0; i< nDataRange; i++)
+	    {
+	    cout << ptrHisto[i] << " ; ";
+	    }
+	cout << endl;
+	cout << "print host histo (after)" << endl;
+    }
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+/*----------------------------------------------------------------------*\
+ |*			End	 					*|
+ \*---------------------------------------------------------------------*/

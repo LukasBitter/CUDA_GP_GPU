@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Student_Cuda/src/cpp/core/00_Tools/00_pi_tools.h&apos; to &apos;PiTools.h&apos;" description="Rename resource &apos;00_pi_tools.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/cpp/core/00_Tools/00_pi_tools.h" name="PiTools.h" stamp="1463337903906" updateReferences="true"/>
+</session>

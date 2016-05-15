@@ -1,11 +1,9 @@
 #include "Histogramme.h"
-#include <assert.h>
 
 #include <iostream>
+#include <stdlib.h>
 
 #include "Device.h"
-
-#define N256 256;
 
 using std::cout;
 using std::endl;
@@ -18,7 +16,7 @@ using std::endl;
  |*		Imported	 	*|
  \*-------------------------------------*/
 
-extern __global__ void histogramme(uchar* ptrDevTabData, int nTabData, int* ptrDevHisto);
+extern __global__ void histogramme(uchar* ptrDevTabData, int nTabData, int* ptrDevHisto, int nDataRange);
 
 /*--------------------------------------*\
  |*		Public			*|
@@ -36,24 +34,25 @@ extern __global__ void histogramme(uchar* ptrDevTabData, int nTabData, int* ptrD
  |*		Constructeur			*|
  \*-------------------------------------*/
 
-Histogramme::Histogramme()
+Histogramme::Histogramme(uchar* tabData, int n)
     {
-    this->nTabData = 256 * (256+1) / 2;
+    this->nDataRange = n;
+    this->nTabData = nDataRange * (nDataRange+1) / 2;
     this->sizeOctetData = nTabData * sizeof(uchar); // octet
-    this->sizeOctetHisto = 256 * sizeof(int); // octet
+    this->sizeOctetHisto = nDataRange * sizeof(int); // octet
     this->tabData = new uchar[nTabData];
-    this->ptrHisto = new int[256];
+    this->ptrHisto = new int[n];
 
-    int s =0;
-    for (int i = 0; i < nTabData; i++)
+    this->tabData = tabData;
+
+    /*
+    cout << "Tableau initial:" << endl;
+    for(int i = 0; i< 10; i++)
 	{
-	for(int j = 0; j< i; j++)
-	    {
-	    this->tabData[s] = i;
-	    s++;
-	    }
+	cout << this->tabData[i] << endl;
 	}
-    assert (s == nTabData);
+    cout << endl;*/
+
 
     // MM
 	{
@@ -104,10 +103,10 @@ Histogramme::~Histogramme(void)
  |*		Methode			*|
  \*-------------------------------------*/
 
-void Histogramme::run()
+int* Histogramme::run()
     {
     Device::lastCudaError("histogramme (before)"); // temp debug
-    histogramme<<<dg,db, sizeOctetHisto>>>(ptrDevTabData, nTabData, ptrDevHisto); // assynchrone
+    histogramme<<<dg,db, sizeOctetHisto>>>(ptrDevTabData, nTabData, ptrDevHisto, nDataRange); // assynchrone
     Device::lastCudaError("histogramme (after)"); // temp debug
 
     Device::synchronize(); // Temp, only for printf in  GPU
@@ -117,11 +116,8 @@ void Histogramme::run()
 	HANDLE_ERROR(cudaMemcpy(ptrHisto, ptrDevHisto, sizeOctetHisto, cudaMemcpyDeviceToHost)); // barriere synchronisation implicite
 	}
 
-	for(int i = 0; i< 256; i++)
-	    {
-	    cout << ptrHisto[i];
-	    }
-	cout << endl;
+
+	return ptrHisto;
     }
 
 /*--------------------------------------*\
