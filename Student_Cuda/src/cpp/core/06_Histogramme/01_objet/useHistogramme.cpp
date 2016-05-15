@@ -57,10 +57,13 @@ bool useHistogramme(void)
 
     // Vérification des données de l'histogramme
     int check = 0;
+    cout << "Histogramme: " << endl;
     for (int i = 0; i < nDataRange; i++)
 	{
+	cout << ptrHisto[i] << " ; ";
 	check += (i + 1) % ptrHisto[i];
 	}
+    cout << endl;
 
     if (check == 0)
 	{

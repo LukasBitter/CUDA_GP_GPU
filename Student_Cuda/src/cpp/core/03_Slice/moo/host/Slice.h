@@ -33,7 +33,7 @@ class Slice
 	float* ptrDevGM;
 
 	// Output
-	float PI;
+	float piRes;
     };
 
 #endif 

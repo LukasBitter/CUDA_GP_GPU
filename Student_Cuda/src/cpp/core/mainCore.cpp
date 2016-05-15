@@ -41,11 +41,10 @@ int mainCore();
 int mainCore()
     {
     bool isOk = true;
-  //isOk &= useHello();
+    //isOk &= useHello();
     //isOk &=useAddVecteur();
-    //isOk &=usePI();
+    //isOk &=useSlice();
     isOk &=useHistogramme();
-    isOk &=useSlice();
 
     cout << "\nisOK = " << isOk << endl;
     cout << "\nEnd : mainCore" << endl;

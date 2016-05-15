@@ -1,5 +1,7 @@
 #include "Slice.h"
+
 #include <iostream>
+
 #include "Device.h"
 
 using std::cout;
@@ -12,13 +14,13 @@ using std::endl;
  |*		Imported	 	*|
  \*-------------------------------------*/
 
-extern __global__ void calculatePI(int nbSlice, float* ptrDevResult);
+extern __global__ void piDevice(float* ptrDevPi, int nbSlice);
 
 /*--------------------------------------*\
  |*		Public			*|
  \*-------------------------------------*/
 
-Slice::Slice(int n) : nbSlice(n), PI(0)
+Slice::Slice(int n) : nbSlice(n), piRes(0)
     {
     sizeOctetGM = 1 * sizeof(float); // Pi est sur un float
 
@@ -39,8 +41,8 @@ Slice::Slice(int n) : nbSlice(n), PI(0)
 
         // Grid
     	{
-    	dg = dim3(32, 16, 1); // disons, a optimiser selon le gpu
-    	db = dim3(32, 16, 1); // Contrainte puissance de deux
+    	dg = dim3(16, 2, 1); // disons, a optimiser selon le gpu
+    	db = dim3(32, 4, 1); // Contrainte puissance de deux
 
     	Device::gridHeuristic(dg, db);
     	}
@@ -62,20 +64,20 @@ Slice::~Slice()
 void Slice::run()
     {
 	Device::lastCudaError("Slice-kernel (before)"); // temp debug
-	calculatePI<<<dg, db, sizeOctetSM>>>(nbSlice, ptrDevGM); // assynchrone
+	piDevice<<<dg, db, sizeOctetSM>>>(ptrDevGM, nbSlice); // assynchrone
         Device::lastCudaError("Slice-kernel (after)"); // temp debug
 
         Device::synchronize(); // Temp, only for printf in  GPU
 
         // MM (Device -> Host)
     	{
-    	HANDLE_ERROR(cudaMemcpy(&PI, ptrDevGM, sizeOctetGM, cudaMemcpyDeviceToHost)); // barriere synchronisation implicite
+    	HANDLE_ERROR(cudaMemcpy(&piRes, ptrDevGM, sizeOctetGM, cudaMemcpyDeviceToHost)); // barriere synchronisation implicite
     	}
     }
 
 float Slice::result()
     {
-    return PI;
+    return piRes;
     }
 
 /*--------------------------------------*\

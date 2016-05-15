@@ -7,8 +7,10 @@
 #include "StringTools.h"
 #include "cudaTools.h"
 
-#include "junit/02_Test_Vector/TestVector.h"
+#include "TestVector.h"
 #include "TestHello.h"
+#include "TestSlice.h"
+#include "TestHisto.h"
 
 
 using std::string;
@@ -66,6 +68,8 @@ bool testALL()
 
     testSuite.add(std::auto_ptr < Suite > (new TestHello(deviceId)));
     testSuite.add(std::auto_ptr < Suite > (new TestVector(deviceId)));
+    testSuite.add(std::auto_ptr < Suite > (new TestSlice(deviceId)));
+    testSuite.add(std::auto_ptr < Suite > (new TestHisto(deviceId)));
 
     string titre = "deviceId_" + StringTools::toString(deviceId);
 
