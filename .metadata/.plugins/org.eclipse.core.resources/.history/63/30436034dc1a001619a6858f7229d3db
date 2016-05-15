@@ -1,6 +1,5 @@
-#include "Indice2D.h"
+#include "ReductionTools.h"
 #include "cudaTools.h"
-#include <curand_kernel.h>
 
 #include <stdio.h>
 
@@ -15,14 +14,14 @@
 /*--------------------------------------*\
  |*		Public			*|
  \*-------------------------------------*/
-__global__ void monteCarlo(float M, int nbFlechettes);
-__global__ void setup_kernel_rand(curandState* tabDevGenerator, int deviceID);
+__global__ void piDevice(float* ptrDevpi, int nbSlice);
 
 /*--------------------------------------*\
  |*		Private			*|
  \*-------------------------------------*/
 
-static __device__ void reductionIntraThread(int* tabSM, curandState* ptrTabDevGeneratorGM, int nbFlechettes);
+static __device__ void reductionIntraThread(float* ptrDevPi,int n);
+static __device__ float aireRectangle(int s);
 
 /*----------------------------------------------------------------------*\
  |*			Implementation 					*|
@@ -35,38 +34,30 @@ static __device__ void reductionIntraThread(int* tabSM, curandState* ptrTabDevGe
 /**
  * output : void required !!
  */
-__global__
-void monteCarlo(curandState* ptrTabDevGeneratorGM, int* ptrDevN0, int nbFlechettes)
+__global__ void piDevice(float* ptrDevPi, int nbSlice)
     {
-    extern __shared__ int tabSM[];
-    reductionIntraThread(tabSM, ptrTabDevGeneratorGM, nbFlechettes);
-    __syncthreads();
-    ReductionTools::reducitonIntraBloc(tabSM);
-    ReductionTools::reducitonInterBloc(tabSM, ptrDevN0);
+    extern __shared__ float tabSM[];
+    ReductionTools<float,float> reductionTools = ReductionTools<float,float>(n);
 
+    initTabSM(tabSM, n);
+    __syncthreads();
+    reductionIntraThread(tabSM, nbSlice); // pas necessaire, just for fun
+    __syncthreads();
+
+    reduceTools.reductionIntraBloc(tabSM);
+    reduceTools.reductionIntrerBloc(tabSM, ptrDevPi);
+    __syncthreads();
+
+    //work(ptrDevPi);
     }
 
 /*--------------------------------------*\
  |*		Private			*|
  \*-------------------------------------*/
-__global__
-void setup_kernel_rand(curandState* tabDevGenerator, int deviceId)
-    {
-    const int TID = Indice1D::tid();
-    //Customisation du generator: Proposition (au lecteur de faire mieux)
-    // Contrainte : Doit etre différent d'un GPU à l'autre
-    int deltaSeed = deviceId * INT_MAX / 10000;
-    int deltaSequence = deviceId * 100;
-    int deltaOffset = deviceId * 100;
-    int seed = 1234 + deltaSeed;
-    int sequenceNumber = TID + deltaSequence;
-    int offset = deltaOffset;
-    curand_init(seed, sequenceNumber, offset, &tabDevGenerator[tid]);
-    }
 
-__device__
-void reductionIntraThread(int* tabSM, curandState* ptrTabDevGeneratorGM, int nbFlechettes)
+__device__ void reductionIntraThread(float* ptrDevPi, int nbSlice)
     {
+    float sumThread = 0;
     const int NB_THREAD = Indice2D::nbThread();
     const int TID_LOCAL = Indice2D::tidLocal();
     const int TID = Indice2D::tid();
@@ -77,15 +68,20 @@ void reductionIntraThread(int* tabSM, curandState* ptrTabDevGeneratorGM, int nbF
 	printf("Coucou from device tid%d", TID); //required   Device::synchronize(); after the call of kernel
 	}
 
-    // pattern entrelacement
+    //TODO pattern entrelacement
 
     int s = TID;
-    while (s < nbFlechettes)
+    while (s < nbSlice)
 	{
-	tabSM[s] = ptrTabDevGeneratorGM[s];
+	sumThread += aireRectangle(s);
 	s += NB_THREAD;
 	}
-    //ptrDevN0[TID_LOCAL] =
+    ptrDevPi[TID_LOCAL] = sumThread;
+    }
+
+__device__ float aireRectangle(int s)
+    {
+    return 1 / (1 + s * s);
     }
 
 /*----------------------------------------------------------------------*\

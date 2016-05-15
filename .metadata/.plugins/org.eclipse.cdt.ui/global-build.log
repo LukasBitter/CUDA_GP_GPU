@@ -1,4 +1,4 @@
-21:17:37 **** Incremental Build of configuration CudaGCC_parallel for project Student_Cuda ****
+22:38:28 **** Build of configuration CudaGCC_parallel for project Student_Cuda ****
 makeCudaGCC.sh jall 
 
 --------------------------------------------------------
@@ -151,25 +151,113 @@ Cuda compilation tools, release 7.0, V7.0.27
 
 [CBI] -> Compilation parallel (12 threads)
 
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/main.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/test/mainTest.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/test/junit/01_Test_Hello/TestHello.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/test/junit/02_Test_Vector/TestVector.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/mainCore.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/02_Hello_add_vector/01_objet/useAddVector.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/02_Hello_add_vector/00_tools/VectorTools.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/06_Histogramme/01_objet/useHistogramme.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/01_Hello/useHello.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : src/cpp/core/03_Slice/usePI.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/AleaTools.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/Chrono.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/Fps.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/LimitsTools.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/MathTools.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/Progress.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/StringTools.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/TabTools.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/namespace_cpu/ColorTools_CPU.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_CPP/src/core/tools/cpp/namespace_cpu/IndiceTools_CPU.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda/src/core/cudatools/header/host/Options.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda/src/core/cudatools/cpp/host/cudaTools.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda/src/core/cudatools/cpp/host/Device.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> g++ compiling .cpp : ../BilatTools_Cuda/src/core/cudatools/cpp/host/Grid.cpp
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/02_Hello_add_vector/01_objet/device/addVector_device.cu
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/02_Hello_add_vector/01_objet/host/AddVector.cu
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/06_Histogramme/01_objet/device/histogramme_device.cu
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/06_Histogramme/01_objet/host/Histogramme.cu
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Hello/01_helloCuda.cu
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Hello/02_hello_add.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/device/pi_device.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/host/PI.cu
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(17): warning: attribute "global" does not apply here
+/usr/local/cuda/include/curand.h(70): error: linkage specification is not allowed
 
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(17): error: expected a ";"
+/usr/local/cuda/include/curand.h(70): error: expected an identifier
 
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(43): error: identifier "CONST" is undefined
+/usr/local/cuda/include/curand.h(70): error: explicit type is missing ("int" assumed)
 
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(43): error: expected a ";"
+/usr/local/cuda/include/curand.h(70): warning: field initializers are a C++11 feature
 
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(45): error: identifier "Reducetools" is undefined
+/usr/local/cuda/include/cuComplex.h(289): error: identifier "cuComplex" is undefined
 
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(45): error: argument list for class template "ReduceTools" is missing
+/usr/local/cuda/include/cuComplex.h(296): error: identifier "cuDoubleComplex" is undefined
 
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(45): error: expected a type specifier
+/usr/local/cuda/include/cuComplex.h(297): error: identifier "cuFloatComplex" is undefined
 
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(45): error: identifier "NB_THREAD_PAR_BLOCK" is undefined
+/usr/local/cuda/include/cuComplex.h(302): error: identifier "cuFloatComplex" is undefined
 
-7 errors detected in the compilation of "/tmp/tmpxft_00001ced_00000000-7_pi_device.cpp1.ii".
+/usr/local/cuda/include/cuComplex.h(303): error: identifier "cuDoubleComplex" is undefined
+
+/usr/local/cuda/include/cuComplex.h(309): error: identifier "cuComplex" is undefined
+
+/usr/local/cuda/include/cuComplex.h(309): error: identifier "cuComplex" is undefined
+
+/usr/local/cuda/include/cuComplex.h(309): error: identifier "cuComplex" is undefined
+
+/usr/local/cuda/include/cuComplex.h(309): error: identifier "cuComplex" is undefined
+
+/usr/local/cuda/include/cuComplex.h(323): error: identifier "cuDoubleComplex" is undefined
+
+/usr/local/cuda/include/cuComplex.h(323): error: identifier "cuDoubleComplex" is undefined
+
+/usr/local/cuda/include/cuComplex.h(323): error: identifier "cuDoubleComplex" is undefined
+
+/usr/local/cuda/include/cuComplex.h(323): error: identifier "cuDoubleComplex" is undefined
+
+/usr/local/cuda/include/cublas_api.h(76): error: linkage specification is not allowed
+
+/usr/local/cuda/include/cublas_api.h(76): error: expected an identifier
+
+/usr/local/cuda/include/cublas_api.h(76): error: explicit type is missing ("int" assumed)
+
+../BilatTools_Cuda/src/core/cudatools/header/host/cudaTools.h(30): error: identifier "curandStatus_t" is undefined
+
+../BilatTools_Cuda/src/core/cudatools/header/host/cudaTools.h(31): error: identifier "cublasStatus_t" is undefined
+
+../BilatTools_Cuda/src/core/cudatools/header/host/cudaTools.h(31): error: invalid redeclaration of member function "ReductionTools<T>::cudaHandleError(<error-type>, const char *, int)"
+(30): here
+
+src/cpp/core/03_Slice/01_objet/device/pi_device.cu(17): error: illegal combination of memory qualifiers
+
+src/cpp/core/03_Slice/01_objet/device/pi_device.cu(37): error: invalid redeclaration of member function "ReductionTools<T>::piDevice(float *, int)"
+(17): here
+
+src/cpp/core/03_Slice/01_objet/device/pi_device.cu(57): error: invalid redeclaration of member function "ReductionTools<T>::reductionIntraThread(float *, int)"
+(23): here
+
+src/cpp/core/03_Slice/01_objet/device/pi_device.cu(81): error: invalid redeclaration of member function "ReductionTools<T>::aireRectangle(int)"
+(24): here
+
+At end of source: error: expected a "}"
+
+/usr/local/cuda/include/curand.h(82): error: expected an expression
+
+/usr/local/cuda/include/curand.h(1020): warning: parsing restarts here after previous syntax error
+
+/usr/local/cuda/include/cuComplex.h(61): error: expected a ";"
+
+/usr/local/cuda/include/cublas_api.h(80): error: expected an expression
+
+/usr/local/cuda/include/cublas_api.h(2537): warning: parsing restarts here after previous syntax error
+
+../BilatTools_Cuda/src/core/cudatools/header/host/cudaTools.h(16): error: expected a ";"
+
+At end of source: error: expected a ";"
+
+32 errors detected in the compilation of "/tmp/tmpxft_00001f9d_00000000-7_pi_device.cpp1.ii".
 make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/pi_device.o] Error 2
 make[1]: *** Waiting for unfinished jobs....
 make: *** [jall] Error 2

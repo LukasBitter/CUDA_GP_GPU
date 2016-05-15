@@ -1,5 +1,10 @@
 #include <iostream>
 #include <limits.h>
+#include <math.h>
+//#include "MathTools.h"
+
+//#include "../03_Slice/00_tools/00_pi_tools.h"
+#include "PI.h"
 
 using std::cout;
 using std::endl;
@@ -12,13 +17,13 @@ using std::endl;
  |*		Imported	 	*|
  \*-------------------------------------*/
 
-#include "MonteCarlo.h"
+extern bool isPiCUDAforReduction_Ok(int n);
 
 /*--------------------------------------*\
  |*		Public			*|
  \*-------------------------------------*/
 
-bool useMonteCarlo(void);
+bool usePI(void);
 
 /*--------------------------------------*\
  |*		Private			*|
@@ -32,21 +37,20 @@ bool useMonteCarlo(void);
  |*		Public			*|
  \*-------------------------------------*/
 
-bool useMonteCarlo()
+bool usePI(void)
     {
-    float M = 10;
-    int nbFlechettes = INT_MAX / 1000;
+    cout << endl << "[PI]" << endl;
 
-    // Partie interessante
-	{
-	MonteCarlo monteCarlo(M, nbFlechettes);
-	monteCarlo.run();
-	cout << monteCarlo.getPI() << endl;
-	}
+    int n = INT_MAX / 1000;
+    bool isOk = true;
 
-    // TODO: bool isOk = VectorTools::isAddVector_Ok(ptrV1, ptrV2, ptrW, n);
+    PI pi(n);
+    //pi.run();
 
-    return true; // TODO: isOk;
+    //isOk &= MathTools::isEquals(saucisson.getPi(), M_PI, 1e-3);;
+    //isOk &= isPiCUDAforReduction_Ok(n);
+
+    return isOk;
     }
 
 /*--------------------------------------*\

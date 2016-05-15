@@ -1,4 +1,4 @@
-#include "ReductionTools.h"
+#include "reductionTools.h"
 #include "cudaTools.h"
 
 #include <stdio.h>
@@ -44,7 +44,8 @@ __global__ void piDevice(float* ptrDevPi, int nbSlice)
     reductionIntraThread(tabSM, nbSlice); // pas necessaire, just for fun
     __syncthreads();
 
-    reduceTools.reduce(tabSM, ptrDevPi);
+    reduceTools.reductionIntraBloc(tabSM);
+    reduceTools.reductionIntrerBloc(tabSM, ptrDevPi);
     __syncthreads();
 
     //work(ptrDevPi);

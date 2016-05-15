@@ -17,7 +17,7 @@ using std::endl;
  |*		Imported	 	*|
  \*-------------------------------------*/
 
-extern bool isPiCUDAforReduction_Ok(int n);
+//extern bool isPiCUDAforReduction_Ok(int n);
 
 /*--------------------------------------*\
  |*		Public			*|
