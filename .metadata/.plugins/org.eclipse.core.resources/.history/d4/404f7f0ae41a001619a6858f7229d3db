@@ -43,7 +43,7 @@ __global__ void piDevice(float* ptrDevPi, int nbSlice)
     reductionIntraThread(tabSM, nbSlice); // pas necessaire, just for fun
     __syncthreads();
 
-    ReductionTools::reduce(tabSM, ptrDevPi);
+    reduceTools.reduce(tabSM, ptrDevPi);
     __syncthreads();
 
     //work(ptrDevPi);

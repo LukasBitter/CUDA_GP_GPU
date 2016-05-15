@@ -21,7 +21,7 @@ class ReductionTools
 
     private:
 	__device__
-	static void reduceIntraBloc(T* tabSM)
+	void reduceIntraBloc(T* tabSM)
 	    {
 	    int nSM = Indice2D::nbThreadLocal();
 	    int moitie = nSM / 2;
@@ -34,7 +34,7 @@ class ReductionTools
 	    }
 
 	__device__
-	static void ecrasement(T* tabSM, int moitie)
+	void ecrasement(T* tabSM, int moitie)
 	    {
 	    const int NB_THREAD_LOCAL = Indice2D::nbThreadBlock();
 	    //const int TID = Indice2D::tidLocal();
@@ -47,7 +47,7 @@ class ReductionTools
 	    }
 
 	__device__
-	static void reduceInterBloc(T* tabSM, T* ptrDevResGM)
+	void reduceInterBloc(T* tabSM, T* ptrDevResGM)
 	    {
 	    if (Indice2D::tidBlock() == 0)
 		{

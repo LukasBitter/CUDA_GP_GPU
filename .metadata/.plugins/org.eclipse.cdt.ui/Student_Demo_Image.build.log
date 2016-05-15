@@ -1,4 +1,4 @@
-23:22:36 **** Clean-only build of configuration CudaGCC_parallel for project Student_Demo_Image ****
+23:31:20 **** Clean-only build of configuration CudaGCC_parallel for project Student_Demo_Image ****
 makeCudaGCC.sh clean 
 
 --------------------------------------------------------
@@ -61,5 +61,5 @@ Cuda compilation tools, release 7.0, V7.0.27
 ==================================================================================
 
 
-23:22:36 Build Finished (took 310ms)
+23:31:21 Build Finished (took 313ms)
 

@@ -1,4 +1,4 @@
-23:22:38 **** Build of configuration CudaGCC_parallel for project Student_Cuda ****
+23:31:23 **** Build of configuration CudaGCC_parallel for project Student_Cuda ****
 makeCudaGCC.sh jall 
 
 --------------------------------------------------------
@@ -178,8 +178,8 @@ Cuda compilation tools, release 7.0, V7.0.27
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/02_Hello_add_vector/01_objet/host/AddVector.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/06_Histogramme/01_objet/device/histogramme_device.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/06_Histogramme/01_objet/host/Histogramme.cu
-[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Hello/02_hello_add.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Hello/01_helloCuda.cu
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Hello/02_hello_add.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/device/pi_device.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/host/PI.cu
 /usr/local/cuda/include/curand.h(70): error: linkage specification is not allowed
@@ -234,10 +234,10 @@ src/cpp/core/03_Slice/01_objet/device/pi_device.cu(17): error: illegal combinati
 src/cpp/core/03_Slice/01_objet/device/pi_device.cu(37): error: invalid redeclaration of member function "ReductionTools<T>::piDevice(float *, int)"
 (17): here
 
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(57): error: invalid redeclaration of member function "ReductionTools<T>::reductionIntraThread(float *, int)"
+src/cpp/core/03_Slice/01_objet/device/pi_device.cu(56): error: invalid redeclaration of member function "ReductionTools<T>::reductionIntraThread(float *, int)"
 (23): here
 
-src/cpp/core/03_Slice/01_objet/device/pi_device.cu(81): error: invalid redeclaration of member function "ReductionTools<T>::aireRectangle(int)"
+src/cpp/core/03_Slice/01_objet/device/pi_device.cu(80): error: invalid redeclaration of member function "ReductionTools<T>::aireRectangle(int)"
 (24): here
 
 At end of source: error: expected a "}"
@@ -256,9 +256,6 @@ At end of source: error: expected a "}"
 
 At end of source: error: expected a ";"
 
-32 errors detected in the compilation of "/tmp/tmpxft_0000797c_00000000-7_pi_device.cpp1.ii".
-make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/pi_device.o] Error 2
-make[1]: *** Waiting for unfinished jobs....
 src/cpp/core/03_Slice/01_objet/host/PI.cu(8): error: a class-qualified name is required
 
 src/cpp/core/03_Slice/01_objet/host/PI.cu(9): error: a class-qualified name is required
@@ -279,6 +276,9 @@ src/cpp/core/03_Slice/01_objet/host/PI.cu(104): error: qualified name is not all
 
 At end of source: error: expected a ";"
 
-10 errors detected in the compilation of "/tmp/tmpxft_00007987_00000000-7_PI.cpp1.ii".
+32 errors detected in the compilation of "/tmp/tmpxft_00001c3b_00000000-7_pi_device.cpp1.ii".
+make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/pi_device.o] Error 2
+make[1]: *** Waiting for unfinished jobs....
+10 errors detected in the compilation of "/tmp/tmpxft_00001c37_00000000-7_PI.cpp1.ii".
 make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/PI.o] Error 2
 make: *** [jall] Error 2

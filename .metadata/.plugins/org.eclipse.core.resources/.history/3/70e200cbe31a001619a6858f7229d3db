@@ -37,13 +37,14 @@ static __device__ float aireRectangle(int s);
 __global__ void piDevice(float* ptrDevPi, int nbSlice)
     {
     extern __shared__ float tabSM[];
+    ReductionTools<float,float> reductionTools = ReductionTools<float,float>(n);
 
     initTabSM(tabSM, n);
     __syncthreads();
     reductionIntraThread(tabSM, nbSlice); // pas necessaire, just for fun
     __syncthreads();
 
-    ReductionTools::reduce(tabSM, ptrDevPi);
+    reduceTools.reduce(tabSM, ptrDevPi);
     __syncthreads();
 
     //work(ptrDevPi);
