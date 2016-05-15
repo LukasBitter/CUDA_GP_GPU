@@ -37,7 +37,7 @@ class ReductionTools
 	void ecrasement(T* tabSM, int moitie)
 	    {
 	    const int NB_THREAD_LOCAL = Indice2D::nbThreadBlock();
-	    //const int TID = Indice1D::tidLocal();
+	    //const int TID = Indice2D::tidLocal();
 	    int s = Indice2D::tidLocal();
 	    while (s < moitie)
 		{

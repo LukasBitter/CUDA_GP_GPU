@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Device.h"
+#include "ReductionTools.h"
 
 using std::cout;
 using std::endl;
@@ -37,18 +38,18 @@ extern __global__ void piDevice(float* ptrDevPi, int nbSlice);
 PI::PI(int nbSlice) :
 	nbSlice(nbSlice)
     {
-    this->sizeOctetPI = sizeof(float);
+    this->sizeOctetGM = sizeof(float);
 
     // MM
 	{
 	// MM (malloc Device)
 	    {
-	    HANDLE_ERROR(cudaMalloc(&ptrDevPi, sizeOctetPI));
+	    HANDLE_ERROR(cudaMalloc(&ptrDevGM, sizeOctetGM));
 	    }
 
 	// MM (memset Device)
 	    {
-	    HANDLE_ERROR(cudaMemset(ptrDevPi, 0, sizeOctetPI));
+	    HANDLE_ERROR(cudaMemset(ptrDevGM, 0, sizeOctetGM));
 	    }
 
 	// MM (copy Host->Device)
@@ -75,7 +76,7 @@ PI::~PI(void)
     {
     //MM (device free)
 	{
-	HANDLE_ERROR(cudaFree(ptrDevPi));
+	HANDLE_ERROR(cudaFree(ptrDevGM));
 
 	Device::lastCudaError("PI MM (end deallocation)"); // temp debug
 	}
@@ -88,16 +89,22 @@ PI::~PI(void)
 void PI::run()
     {
     Device::lastCudaError("pi (before)"); // temp debug
-    piDevice<<<dg,db>>>(ptrDevPi, nbSlice); // assynchrone
+    piDevice<<<dg,db, sizeOctetSM>>>(ptrDevGM, nbSlice); // assynchrone
     Device::lastCudaError("pi (after)"); // temp debug
 
-    //Device::synchronize(); // Temp, only for printf in  GPU
+    Device::synchronize(); // Temp, only for printf in  GPU
 
     // MM (Device -> Host)
 	{
 	// copie de droite à gauche pour les 2 premières variables
-	HANDLE_ERROR(cudaMemcpy(&piRes, ptrDevPi, sizeOctetSM, cudaMemcpyDeviceToHost)); // barriere synchronisation implicite
+	HANDLE_ERROR(cudaMemcpy(&piRes, ptrDevGM, sizeOctetGM, cudaMemcpyDeviceToHost)); // barriere synchronisation implicite
 	}
+    }
+
+float PI::getPi()
+    {
+    return piRes;
+    }
     }
 
 /*--------------------------------------*\

@@ -1,4 +1,4 @@
-22:38:28 **** Build of configuration CudaGCC_parallel for project Student_Cuda ****
+23:22:38 **** Build of configuration CudaGCC_parallel for project Student_Cuda ****
 makeCudaGCC.sh jall 
 
 --------------------------------------------------------
@@ -101,7 +101,6 @@ Cuda compilation tools, release 7.0, V7.0.27
 [CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/header/host/
 [CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/header/mixte/
 [CBI] ->              : ../BilatTools_Cuda/src/core/cudatools/nvidia/
-[CBI] ->              : src/cpp/core/
 [CBI] ->              : src/cpp/core/00_Tools/
 [CBI] ->              : src/cpp/core/02_Hello_add_vector/00_tools/
 [CBI] ->              : src/cpp/core/02_Hello_add_vector/01_objet/host/
@@ -179,8 +178,8 @@ Cuda compilation tools, release 7.0, V7.0.27
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/02_Hello_add_vector/01_objet/host/AddVector.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/06_Histogramme/01_objet/device/histogramme_device.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/06_Histogramme/01_objet/host/Histogramme.cu
-[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Hello/01_helloCuda.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Hello/02_hello_add.cu
+[Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Hello/01_helloCuda.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/device/pi_device.cu
 [Student_Cuda_gcc_cuda_70_x86_64] -> nvcc compiling .cu : src/cpp/core/03_Slice/01_objet/host/PI.cu
 /usr/local/cuda/include/curand.h(70): error: linkage specification is not allowed
@@ -257,7 +256,29 @@ At end of source: error: expected a "}"
 
 At end of source: error: expected a ";"
 
-32 errors detected in the compilation of "/tmp/tmpxft_00001f9d_00000000-7_pi_device.cpp1.ii".
+32 errors detected in the compilation of "/tmp/tmpxft_0000797c_00000000-7_pi_device.cpp1.ii".
 make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/pi_device.o] Error 2
 make[1]: *** Waiting for unfinished jobs....
+src/cpp/core/03_Slice/01_objet/host/PI.cu(8): error: a class-qualified name is required
+
+src/cpp/core/03_Slice/01_objet/host/PI.cu(9): error: a class-qualified name is required
+
+src/cpp/core/03_Slice/01_objet/host/PI.cu(19): error: invalid storage class for a class member
+
+src/cpp/core/03_Slice/01_objet/host/PI.cu(19): error: illegal combination of memory qualifiers
+
+src/cpp/core/03_Slice/01_objet/host/PI.cu(38): error: qualified name is not allowed
+
+src/cpp/core/03_Slice/01_objet/host/PI.cu(75): error: qualified name is not allowed
+
+src/cpp/core/03_Slice/01_objet/host/PI.cu(75): error: this declaration has no storage class or type specifier
+
+src/cpp/core/03_Slice/01_objet/host/PI.cu(89): error: qualified name is not allowed
+
+src/cpp/core/03_Slice/01_objet/host/PI.cu(104): error: qualified name is not allowed
+
+At end of source: error: expected a ";"
+
+10 errors detected in the compilation of "/tmp/tmpxft_00007987_00000000-7_PI.cpp1.ii".
+make[1]: *** [/tmp/ramdrive/arc13/Targets/Student_Cuda/obj/PI.o] Error 2
 make: *** [jall] Error 2

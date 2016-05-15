@@ -1,6 +1,6 @@
 #include <iostream>
 #include <limits.h>
-#include <math.h>
+//#include <math.h>
 //#include "MathTools.h"
 
 //#include "../03_Slice/00_tools/00_pi_tools.h"
@@ -45,7 +45,7 @@ bool usePI(void)
     bool isOk = true;
 
     PI pi(n);
-    //pi.run();
+    pi.run();
 
     //isOk &= MathTools::isEquals(saucisson.getPi(), M_PI, 1e-3);;
     //isOk &= isPiCUDAforReduction_Ok(n);

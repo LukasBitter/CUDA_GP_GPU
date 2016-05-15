@@ -21,7 +21,8 @@ class PI
 	/**
 	 * update w by v1+v2
 	 */
-	PI(int nbSlice);
+	PI(int n);
+	float getPi();
 
 	virtual ~PI(void);
 
@@ -50,8 +51,8 @@ class PI
 	dim3 db;
 	size_t sizeOctetSM;
 	// nécessaire pour transmetttre l'information entre le device et le host:
-	size_t sizeOctetPI;
-	float* ptrDevPi;
+	size_t sizeOctetGM;
+	float* ptrDevGM;
 
     };
 

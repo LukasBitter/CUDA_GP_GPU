@@ -1,9 +1,9 @@
-22:38:21 **** Clean-only build of configuration CudaVisual_parallel for project BilatTools_Cuda_Image ****
+23:22:35 **** Clean-only build of configuration CudaVisual_parallel for project BilatTools_Cuda_Image ****
 makeCudaVisual clean 
 Cannot run program "makeCudaVisual": Unknown reason
 
 Error: Program "makeCudaVisual" not found in PATH
 PATH=[/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/etc/cbi/dev/make]
 
-22:38:21 Build Finished (took 2ms)
+23:22:35 Build Finished (took 2ms)
 
